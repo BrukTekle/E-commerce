@@ -17,13 +17,10 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import edu.mum.validation.EmptyOrSize;
-import edu.mum.validation.NullMinNumber;
-
 
 //@Entity(name="MEMBR") 
 @Entity
-public class Member {
+public class Members {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -54,7 +51,7 @@ public class Member {
 	
 	 @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 //	 @JoinColumn(name="memberId") 
-	 private List<Order> orders;
+	 private List<Orders> orders;
 	
 	public String getPhone() {
 		return phone;
@@ -69,10 +66,10 @@ public class Member {
 	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
-	public List<Order> getOrders() {
+	public List<Orders> getOrders() {
 		return orders;
 	}
-	public void setOrders(List<Order> orders) {
+	public void setOrders(List<Orders> orders) {
 		this.orders = orders;
 	}
   
