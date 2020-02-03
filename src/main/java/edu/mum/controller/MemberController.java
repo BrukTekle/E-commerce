@@ -3,7 +3,6 @@ package edu.mum.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.mum.domain.Member;
-import edu.mum.domain.UserCredentials;
 import edu.mum.service.MemberService;
 import edu.mum.service.UserCredentialsService;
 
@@ -51,14 +49,14 @@ public class MemberController {
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String getAddNewMemberForm(@ModelAttribute("newMember") Member newMember) {
-	   return "addMember";
+	   return "addProduct";
 	}
 	   
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String processAddNewMemberForm(@ModelAttribute("newMember") @Valid Member memberToBeAdded, BindingResult result) {
  
 		if(result.hasErrors()) {
-			return "addMember";
+			return "addProduct";
 		}
 
 			 //  Error caught by ControllerAdvice IF no authorization...
