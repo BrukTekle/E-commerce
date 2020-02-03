@@ -1,33 +1,46 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<title>Products</title>
 </head>
 <body>
-
-	<title>Products</title>
-</head>
-<body>
-
-	<div class="container">
-		<h1>Products</h1>
-	</div>
-	<div class="row">
-		<!-- 			<a href=/productDetails> <img src="C:\Users\Selam Ghide\Pictures\Saved Pictures"></a>   "></a> -->
-
-		<img src="C:\Users\Selam Ghide\Pictures\Saved Pictures"></a> "></a>
-
-		<div class="caption">
-			<h3>${product.name}h3>
-				<p>${product.description}</p>
-				<h3>${product.price}</h3>
-
-				<p>
+	<section>
+		<div class="jumbotron">
+			<div class="container">
+				<h1>Products</h1>
+				<p>All the available products in our store</p>
+			</div>
 		</div>
+	</section>
 
-		<a href=" /productDetails"> Details </a>
+	<section class="container">
+		<div class="row">
+			<c:forEach items="${products}" var="product">
+				<div class="col-sm-6 col-md-3" style="padding-bottom: 15px">
+					<div class="thumbnail">
+					<img src="<c:url value="/resource/images/${product.productId}.png"></c:url>" alt="image"  style = "width:100%"/>
+						<div class="caption">
+							<h3>${product.name}</h3>
+							<p>${product.description}</p>
+							<p>${product.unitPrice}USD</p>
+							<p>Available ${product.unitsInStock} units in stock</p>
+							<p>
+								<a
+									href=" <spring:url value="/products/product?id=${product.productId}" /> "
+									class="btn btn-primary"> <span
+									class="glyphicon-info-sign glyphicon" /></span> Details
+								</a>
+							</p>
+
+						</div>
+					</div>
+				</div>
+			</c:forEach>
+		</div>
+	</section>
 </body>
 </html>

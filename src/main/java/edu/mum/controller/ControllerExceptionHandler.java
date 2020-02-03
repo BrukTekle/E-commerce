@@ -20,7 +20,7 @@ public class ControllerExceptionHandler {
 @ModelAttribute ("testOrder")
  public String testOrder() {
 
-	// test interceptor Order		
+	// test interceptor Orders
 	System.out.println("CONTROLLERADVICE PREHANDLE");
 
 	return "This is ADVICE ORDER!";

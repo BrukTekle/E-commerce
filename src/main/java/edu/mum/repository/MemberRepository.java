@@ -1,11 +1,10 @@
 package edu.mum.repository;
 
+import edu.mum.domain.Members;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import edu.mum.domain.Member;
-
 @Repository
-public interface MemberRepository extends CrudRepository<Member,Long> {
-	public Member findByMemberNumber(Integer memberNumber);
+public interface MemberRepository extends CrudRepository<Members,Long> {
+//	public Members findByMemberNumber(Integer memberNumber);
  	}
