@@ -5,8 +5,8 @@
 <head>
     <title>My Awesome Website</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/style.css">
-    <link rel="stylesheet"
-          href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <%--<link rel="stylesheet"--%>
+          <%--href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">--%>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 
     <script>
