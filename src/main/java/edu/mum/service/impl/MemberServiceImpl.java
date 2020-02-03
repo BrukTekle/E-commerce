@@ -43,9 +43,9 @@ public class MemberServiceImpl implements edu.mum.service.MemberService {
 		return memberRepository.findOne(id);
 	}
 	
-	public Member findByMemberNumber(int memberId) {
-		return memberRepository.findByMemberNumber(memberId);
-	}
+//	public Member findByMemberNumber(int memberId) {
+//		return memberRepository.findByMemberNumber(memberId);
+//	}
  
 
 }

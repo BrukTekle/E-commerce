@@ -41,13 +41,13 @@ public class MemberController {
  		return "member";
 	}
 
-  	@RequestMapping(value="/number/{id}", method = RequestMethod.GET)
-	public String getMemberByMemberNumber(@PathVariable("id") Integer id,Model model) {
-		Member member = memberService.findByMemberNumber(id);
-		model.addAttribute("member", member);
-
- 		return "member";
-	}
+//  	@RequestMapping(value="/number/{id}", method = RequestMethod.GET)
+//	public String getMemberByMemberNumber(@PathVariable("id") Integer id,Model model) {
+//		Member member = memberService.findByMemberNumber(id);
+//		model.addAttribute("member", member);
+//
+// 		return "member";
+//	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String getAddNewMemberForm(@ModelAttribute("newMember") Member newMember) {

@@ -12,7 +12,7 @@ public interface MemberService {
 
 	public List<Member> findAll();
  	public Member findOne(Long id);
-	public Member findByMemberNumber(int memberId);
+//	public Member findByMemberNumber(int memberId);
  
 	
 }

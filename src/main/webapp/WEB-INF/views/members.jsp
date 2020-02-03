@@ -41,7 +41,7 @@
  						<div class="caption">
 							<h4>First Name - ${member.firstName}</h4>
 							<h4>Last Name -  ${member.lastName}
-						 <a href="<spring:url value="/members/number/${member.memberNumber}" />" class="btn btn-primary  btn-mini  ">View</a>
+						 <%-- <a href="<spring:url value="/members/number/${member.memberNumber}" />" class="btn btn-primary  btn-mini  ">View</a> --%>
  				</h4>
  					</div>
 					</div>

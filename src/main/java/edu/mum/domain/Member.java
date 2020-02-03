@@ -1,5 +1,8 @@
 package edu.mum.domain;
 
+import java.sql.Date;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.Size;
 
@@ -17,7 +21,8 @@ import edu.mum.validation.EmptyOrSize;
 import edu.mum.validation.NullMinNumber;
 
 
-@Entity(name="MEMBR") 
+//@Entity(name="MEMBR") 
+@Entity
 public class Member {
 
 	@Id
@@ -33,22 +38,51 @@ public class Member {
 	@Size(min=5, max = 9, message= "{EmptyOrSize}")
 	private String lastName;
 
-	@NullMinNumber(value=6)
-	private Integer age;
- 	
-	@Column(length = 32)
 	@NotEmpty
-	private String title;
+	private Date dateOfBirth;
+ 	
+	@NotEmpty
+	private String phone;
 	
-	@NullMinNumber(value=6)
- 	private Integer memberNumber;
-
 	@OneToOne(fetch=FetchType.LAZY) 
  	@JoinColumn(name="member_id") 
  	UserCredentials userCredentials;
- 	
+	
+	@OneToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL) 
+ 	@JoinColumn(name="addressId")
+	Address address;
+	
+	 @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//	 @JoinColumn(name="memberId") 
+	 private List<Order> orders;
+	
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+	public List<Order> getOrders() {
+		return orders;
+	}
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
   
- 
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
  	public Long getId() {
 		return id;
 	}
@@ -67,31 +101,12 @@ public class Member {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
- 
-	
+
  	public UserCredentials getUserCredentials() {
 		return userCredentials;
 	}
 	public void setUserCredentials(UserCredentials userCredentials) {
 		this.userCredentials = userCredentials;
-	}
- 	public Integer getMemberNumber() {
-		return memberNumber;
-	}
-	public void setMemberNumber(Integer memberNumber) {
-		this.memberNumber = memberNumber;
-	}
-	public void setAge(Integer age) {
-		this.age = age;
-	}
- 	public Integer getAge() {
-		return age;
 	}
 
   }
