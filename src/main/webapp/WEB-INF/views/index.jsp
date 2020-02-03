@@ -32,6 +32,9 @@
             $("#signup").click(function (event) {
                 $('#main').load("signup");
             });
+            $("#login").click(function (event) {
+                $('#main').load("login");
+            });
         });
 
 
@@ -58,6 +61,7 @@
             <li><a href="#" id="wish-list">Wish list</a></li>
             <li><a href="#" id="about">About</a></li>
             <li><a href="#" id="signup">Sign Up</a></li>
+            <li><a href="#" id="login">Login</a></li>
         </ul>
     </nav>
 

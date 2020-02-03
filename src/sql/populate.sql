@@ -8,7 +8,5 @@ INSERT INTO authority (id,username, authority) VALUES (3,'admin', 'ROLE_USER');
 
 INSERT INTO address (city, country, state,street,zipCode) VALUES ('Asmara', 'Eritrea', 'Makel','203','1299');
  
-INSERT INTO  `member` (firstName, lastName,dateOfBirth,phone,addressId,member_id) VALUES ('Curious','George','12/12/12','12345678',1,'admin');
-INSERT INTO `member` (firstName, lastName,dateOfBirth,phone,addressId,member_id) VALUES ('Allen','Rench','12/12/12','87654321',1,'guest');
- 
-					
+INSERT INTO  `members` (firstName, lastName,dateOfBirth,phone,addressId,member_id) VALUES ('Curious','George','12/12/12','12345678',1,'admin');
+INSERT INTO `members` (firstName, lastName,dateOfBirth,phone,addressId,member_id) VALUES ('Allen','Rench','12/12/12','87654321',1,'guest');
