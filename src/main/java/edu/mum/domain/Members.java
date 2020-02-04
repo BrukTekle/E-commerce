@@ -13,8 +13,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -42,21 +44,25 @@ public class Members {
 // 	@DateTimeFormat(pattern = "yyyy/MM/dd")
 //	private Date dateOfBirth;
  	
-	
+	@Pattern(regexp="(^$|[0-9]{10})")
 	@NotEmpty
 	private String phone;
 	
+	@Valid
 	@OneToOne(fetch=FetchType.LAZY) 
  	@JoinColumn(name="member_id") 
  	UserCredentials userCredentials;
 	
+	@Valid
 	@OneToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL) 
  	@JoinColumn(name="addressId")
 	Address address;
 	
-	 @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL ,mappedBy = "member")
+	 @Valid
+	 @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 //	 @JoinColumn(name="memberId") 
 	 private List<Orders> orders;
+	
 	
 	public String getPhone() {
 		return phone;

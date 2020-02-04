@@ -6,6 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Address {
@@ -13,11 +17,23 @@ public class Address {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
+	
+	@NotEmpty
 	private String street;
+	
+	@NotEmpty
 	private String city;
+	
+	@Size(min = 2, max = 2, message = "{Size.state}")
 	private String state;
+	
+	@NotEmpty
+	@Pattern(regexp="(^$|[0-9]{5})")
 	private String zipCode;
+	
+	@NotEmpty
 	private String country;
+	
 	public String getStreet() {
 		return street;
 	}

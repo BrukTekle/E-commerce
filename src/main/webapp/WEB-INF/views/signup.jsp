@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
- <link rel="stylesheet"	href="//netdna.bo<!--  -->otstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+ <%-- <link rel="stylesheet"	href="//netdna.bo<!--  -->otstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"> --%>
 <title>Sign Up</title>
 </head>
 <body>
@@ -46,14 +46,6 @@
 						<form:errors path="lastName" cssStyle="color: red;"/>
 					</div>
 				</div>
-
-				<%-- <div class="form-group">
-					<label class="control-label col-lg-2" for="age">Age</label>
-					<div class="col-lg-10">
-						<form:input id="age" path="age" type="text" class="form:input-large"/>
-						<form:errors path="age" cssClass="text-danger"/>
-					</div>
-				</div> --%>
 				<%-- <div class="form-group">
 					<label class="control-label col-lg-2" for="dateOfBirth">Date of Birth</label>
 					<div class="col-lg-10">
@@ -69,15 +61,54 @@
 						<form:errors path="phone" cssStyle="color: red;"/>
 					</div>
 				</div> 
+				<div class="form-group">
+					<h3> Address</h3>
+				</div>
 				
-				<%-- <div class="form-group">
-					<label class="control-label col-lg-2" for="title">Title</label>
+				<div class="form-group">
+					<label class="control-label col-lg-2" for="street">Street</label>
 					<div class="col-lg-10">
-						<form:input id="title" path="title" type="text" class="form:input-large"/>
-						<form:errors path="title" cssClass="text-danger"/>
+						<div class="form:input-prepend">
+							<form:input id="street" path="address.street" type="text" class="form:input-large"/>
+							<form:errors path="address.street" cssStyle="color: red;"/>
+						</div>
 					</div>
-				</div> --%>
-
+				</div>
+				
+				<div class="form-group">
+					<label class="control-label col-lg-2" for="city">City</label>
+					<div class="col-lg-10">
+						<div class="form:input-prepend">
+							<form:input id="city" path="address.city" type="text" class="form:input-large"/>
+							<form:errors path="address.city" cssStyle="color: red;"/>
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="control-label col-lg-2" for="zipCode">ZipCode</label>
+					<div class="col-lg-10">
+						<div class="form:input-prepend">
+							<form:input id="zipCode" path="address.zipCode" type="text" class="form:input-large"/>
+							<form:errors path="address.zipCode" cssStyle="color: red;"/>
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="control-label col-lg-2" for="country">Country</label>
+					<div class="col-lg-10">
+						<div class="form:input-prepend">
+							<form:input id="country" path="address.country" type="text" class="form:input-large"/>
+							<form:errors path="address.country" cssStyle="color: red;"/>
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<h3> User Credentials</h3>
+				</div>
+				
 				<div class="form-group">
 					<label class="control-label col-lg-2" for="userName">User Name</label>
 					<div class="col-lg-10">
