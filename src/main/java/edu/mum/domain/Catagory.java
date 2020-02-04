@@ -18,15 +18,15 @@ public class Catagory {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private Integer id;
 	private String name;
 	private String description;
 	private byte[] catagoryImage;
 	
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	@OneToMany(mappedBy="catagory", cascade = CascadeType.ALL)

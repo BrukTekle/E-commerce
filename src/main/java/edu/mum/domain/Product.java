@@ -1,11 +1,14 @@
 package edu.mum.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
@@ -30,7 +33,6 @@ public class Product implements Serializable {
     private MultipartFile productImage;
 	private String imageURL;
 	private String productCondition;
-//  @OneToMany
     @ManyToOne
     @JoinColumn(name="cid")
    	private Catagory catagory;
