@@ -36,9 +36,6 @@ public class Product implements Serializable {
     @ManyToOne
     @JoinColumn(name="cid")
    	private Catagory catagory;
-//  @ManyToMany(mappedBy = "productId")
-   @ManyToMany(mappedBy = "products")
-	 private List<Orders> orders;
     public void setId(Long id) {
 	this.id = id;
 }
@@ -107,14 +104,6 @@ public class Product implements Serializable {
 	}
 	public void setProductImage(MultipartFile productImage) {
 		this.productImage = productImage;
-	}
-	
-    
-	public List<Orders> getOrders() {
-		return orders;
-	}
-	public void setOrders(List<Orders> orders) {
-		this.orders = orders;
 	}
 
 	public String getName() {

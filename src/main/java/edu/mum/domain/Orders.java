@@ -47,6 +47,7 @@ public class Orders {
     }
 
     public Double getTotalPrice() {
+        totalPrice = calculateTotalPrice();
         return totalPrice;
     }
 
@@ -69,4 +70,10 @@ public class Orders {
     public void setMember(Members member) {
         this.member = member;
     }
+
+
+    private Double calculateTotalPrice() {
+        return cartItems.stream().mapToDouble((x) -> x.getAmount() * x.getProduct().getPrice()).sum();
+    }
+
 }
