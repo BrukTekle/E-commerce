@@ -7,6 +7,7 @@ INSERT INTO authority (id,username, authority) VALUES (2,'admin', 'ROLE_ADMIN');
 INSERT INTO authority (id,username, authority) VALUES (3,'admin', 'ROLE_USER');
 
 INSERT INTO address (city, country, state,street,zipCode) VALUES ('Asmara', 'Eritrea', 'Makel','203','1299');
+INSERT INTO catagory (name, description) VALUES ('Electronics', 'That pretty much work by electricity');
  
 INSERT INTO  `members` (firstName, lastName,dateOfBirth,phone,addressId,member_id) VALUES ('Curious','George','12/12/12','12345678',1,'admin');
 INSERT INTO `members` (firstName, lastName,dateOfBirth,phone,addressId,member_id) VALUES ('Allen','Rench','12/12/12','87654321',1,'guest');
