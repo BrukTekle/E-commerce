@@ -1,13 +1,9 @@
 package edu.mum.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Transient;
+import javax.persistence.*;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.web.multipart.MultipartFile;
@@ -30,13 +26,9 @@ public class Product implements Serializable {
     private MultipartFile productImage;
 	private String imageURL;
 	private String productCondition;
-//  @OneToMany
     @ManyToOne
     @JoinColumn(name="cid")
    	private Catagory catagory;
-//  @ManyToMany(mappedBy = "productId")
-   @ManyToMany(mappedBy = "products")
-	 private List<Orders> orders;
     public void setId(Long id) {
 	this.id = id;
 }
@@ -107,14 +99,6 @@ public class Product implements Serializable {
 		this.productImage = productImage;
 	}
 	
-    
-	public List<Orders> getOrders() {
-		return orders;
-	}
-	public void setOrders(List<Orders> orders) {
-		this.orders = orders;
-	}
-
 	public String getName() {
 		return name;
 	}
