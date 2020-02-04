@@ -1,5 +1,6 @@
 package edu.mum.controller;
 
+import edu.mum.domain.Members;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -49,7 +50,7 @@ public class HomeController {
     }
 
     @RequestMapping({"/signup"})
-    public String signup(Model model) {
+    public String signup(@ModelAttribute("newMember") Members member, Model model) {
         return "signup";
     }
 
