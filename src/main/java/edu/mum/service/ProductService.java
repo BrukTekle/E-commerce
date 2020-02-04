@@ -18,4 +18,10 @@ public interface ProductService {
 	Set<Product> getProductsByFilter(Map<String, List<String>> filterParams);
 	
 	void addProduct(Product product);
+
+import edu.mum.domain.Catagory;
+
+
+	
+
 }

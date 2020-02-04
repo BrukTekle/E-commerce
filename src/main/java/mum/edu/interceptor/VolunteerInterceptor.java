@@ -16,7 +16,7 @@ public class VolunteerInterceptor extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
 
-		// test interceptor Order		
+		// test interceptor Orders
 		System.out.println("INTERCEPTOR PREHANDLE");
  	
 		return true;
@@ -26,7 +26,7 @@ public class VolunteerInterceptor extends HandlerInterceptorAdapter {
  	@Override
 	public void postHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler,ModelAndView modelAndView) throws Exception {
-	String userMessage = "Become a Community Member - Join the Team!";
+	String userMessage = "Become a Community Members - Join the Team!";
  
 		Principal principal = request.getUserPrincipal();
 

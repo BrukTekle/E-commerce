@@ -1,18 +1,17 @@
 package edu.mum.service;
 
 import java.util.List;
-import java.util.Set;
 
-import edu.mum.domain.Member;
- 
+import edu.mum.domain.Members;
+
 public interface MemberService {
 
-	public void save(Member member);
-    	public void saveFull( Member member);  		
+	public void save(Members member);
+    	public void saveFull( Members member);
 
-	public List<Member> findAll();
- 	public Member findOne(Long id);
-//	public Member findByMemberNumber(int memberId);
+	public List<Members> findAll();
+ 	public Members findOne(Long id);
+//	public Members findByMemberNumber(int memberId);
  
 	
 }

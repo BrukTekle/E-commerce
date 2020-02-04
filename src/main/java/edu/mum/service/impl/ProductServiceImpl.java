@@ -7,13 +7,16 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import edu.mum.domain.Product;
 import edu.mum.repository.ProductRepository;
 import edu.mum.service.ProductService;
 
 @Service
-public class ProductServiceImpl implements ProductService{
-	
+@Transactional
+public class ProductServiceImpl implements ProductService {
+
 	@Autowired
 	ProductRepository productRepository;
 
@@ -46,5 +49,4 @@ public class ProductServiceImpl implements ProductService{
 		
 	}
 	
-
 }

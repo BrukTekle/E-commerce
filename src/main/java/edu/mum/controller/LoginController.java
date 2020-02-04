@@ -13,7 +13,7 @@ public class LoginController {
 	public String login() {
  		return "login";
 	}
- 
+	
 	@RequestMapping(value="/loginfailed", method = RequestMethod.GET)
 	public String loginerror(Model model) {
  
