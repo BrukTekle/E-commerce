@@ -54,7 +54,7 @@ public class Members {
  	@JoinColumn(name="addressId")
 	Address address;
 	
-	 @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	 @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL ,mappedBy = "member")
 //	 @JoinColumn(name="memberId") 
 	 private List<Orders> orders;
 	

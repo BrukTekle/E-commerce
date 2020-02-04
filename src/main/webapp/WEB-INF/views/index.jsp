@@ -5,7 +5,7 @@
 <head>
     <title>My Awesome Website</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/style.css"/>
-          
+
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 
     <script>
@@ -17,7 +17,7 @@
                 $('#main').load("addProduct");
             });
             $("#all-orders").click(function (event) {
-                $('#main').load("all-orders");
+                $('#main').load("orders/all-orders");
             });
             $("#user-orders").click(function (event) {
                 $('#main').load("user-orders");
@@ -49,7 +49,11 @@
 
     <a id="logo" href="index.html">
         <img src="${pageContext.request.contextPath}/resource/images/avatar.png" alt="Logo"/>
-        <span>Ecommerce Website</span>
+        <span>Ecommerce Website
+            <p> <security:authorize access="isAuthenticated()">
+                Welcome <security:authentication property="principal.username"/>
+            </security:authorize></p>
+        </span>
     </a>
 
     <!-- main navigation links -->
