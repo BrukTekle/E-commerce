@@ -29,14 +29,48 @@ public class Product implements Serializable {
     
     @Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-    private long id;
+    private Long id;
 	private String name;
     private String description;
-    private float price;
-    private String manufacturer;
+    private Float price;
+	private String manufacturer;
+    private Integer amount;
 	@JsonIgnore 
 	@Transient
     private MultipartFile productImage;
+	private String imageURL;
+	private String productCondition;
+//  @OneToMany
+    @ManyToOne
+    @JoinColumn(name="cid")
+   	private Catagory catagory;
+//  @ManyToMany(mappedBy = "productId")
+   @ManyToMany(mappedBy = "products")
+	 private List<Orders> orders;
+    public void setId(Long id) {
+	this.id = id;
+}
+	public String getProductCondition() {
+		return productCondition;
+	}
+	public void setProductCondition(String productCondition) {
+		this.productCondition = productCondition;
+	}
+	public void setPrice(Float price) {
+		this.price = price;
+	}
+    public Float getPrice() {
+        return price;
+    }
+
+	public void setAmount(Integer amount) {
+		this.amount = amount;
+	}
+    public Integer getAmount() {
+		return amount;
+	}
+
+
 //    public void setProductImage(byte[] productImage) {
 //		this.productImage = productImage;
 //	}
@@ -45,8 +79,8 @@ public class Product implements Serializable {
 //		return productImage;
 //	}
 	
-	private String imageURL;
-public String getImageURL() {
+	
+	public String getImageURL() {
 		return imageURL;
 	}
 	public void setImageURL(String imageURL) {
@@ -58,29 +92,16 @@ public String getImageURL() {
 	public void setCatagory(Catagory catagory) {
 		this.catagory = catagory;
 	}
-	private int unitsInStock;
-    private String condition;
-    
-//  @OneToMany
-    @ManyToOne
-    @JoinColumn(name="cId")
-   	private Catagory catagory;
     
 	public long getId() {
 		return id;
 	}
 
 	public String getCondition() {
-		return condition;
+		return productCondition;
 	}
-	public void setCondition(String condition) {
-		this.condition = condition;
-	}
-	public int getUnitsInStock() {
-		return unitsInStock;
-	}
-	public void setUnitsInStock(int unitsInStock) {
-		this.unitsInStock = unitsInStock;
+	public void setCondition(String productCondition) {
+		this.productCondition = productCondition;
 	}
     
     public String getManufacturer() {
@@ -95,23 +116,13 @@ public String getImageURL() {
 	public void setProductImage(MultipartFile productImage) {
 		this.productImage = productImage;
 	}
-	private int amount;
+	
     
 	public List<Orders> getOrders() {
 		return orders;
 	}
 	public void setOrders(List<Orders> orders) {
 		this.orders = orders;
-	}
-	//    @ManyToMany(mappedBy = "productId")
-     @ManyToMany(mappedBy = "products")
-	 private List<Orders> orders;
-
-    public int getAmount() {
-		return amount;
-	}
-	public void setAmount(int amount) {
-		this.amount = amount;
 	}
 
 	public String getName() {
@@ -126,10 +137,5 @@ public String getImageURL() {
     public void setDescription(String description) {
         this.description = description;
     }
-    public float getPrice() {
-        return price;
-    }
-    public void setPrice(float price) {
-        this.price = price;
-    }
+
 }

@@ -20,17 +20,17 @@
 
 				<form:errors path="*" cssClass="alert alert-danger" element="div"/>
 
-					<label class="control-label col-lg-2" for="name"><spring:message code="addProduct.form.name.label"/></label>
-					<div class="col-lg-10">
-						<form:input id="name" path="name" type="text" class="form:input-large"/>
-						<form:errors path="name" cssClass="text-danger"/>
+					<label for="pname"><spring:message code="addProduct.form.name.label"/></label>
+					<div>
+						<form:input id="pname" path="name" type="text"/>
+						<%-- <form:errors path="name" cssClass="text-danger"/> --%>
 					</div>
 					
-					<label for="price"><spring:message code="addProduct.form.unitPrice.label"/></label>
+					<label for="unitPrice"><spring:message code="addProduct.form.unitPrice.label"/></label>
 
 						<div >
-							<form:input id="unitPrice" path="price" type="text" class="form:input-large"/>
-							<form:errors path="price" />
+							<form:input id="unitPrice" path="price" />
+							<%-- <form:errors path="price" /> --%>
 	
 					</div>
 	
@@ -50,7 +50,7 @@
 						<form:input id="category" path="catagory" /> --%>
 
 				  <div class="form-group">
-					<form:select path="catagory">
+					<form:select path="cid">
    						<form:option value="NONE" label="--- Select ---"/>
    						<form:options items="${categoryList}" itemValue="id" />
 					</form:select>
@@ -59,7 +59,7 @@
 				<div class="form-group">
 					<label class="control-label col-lg-2" for="unitsInStock"><spring:message code="addProduct.form.unitsInStock.label"/></label>
 
-						<form:input id="unitsInStock" path="unitsInStock" type="text" class="form:input-large"/>
+						<form:input id="unitsInStock" path="amount" type="text" class="form:input-large"/>
 
 				</div>
 

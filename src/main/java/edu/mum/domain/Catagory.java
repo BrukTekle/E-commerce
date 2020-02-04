@@ -23,11 +23,20 @@ public class Catagory {
 	private String description;
 	private byte[] catagoryImage;
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	@OneToMany(mappedBy="catagory", cascade = CascadeType.ALL)
 	private List<Product> products;
 	 
 	public List<Product> getProducts() {
 		return products;
+	}	
+	public void setProducts(List<Product> products) {
+		this.products = products;
 	}
 	public byte[] getCatagoryImage() {
 		return catagoryImage;
@@ -35,9 +44,7 @@ public class Catagory {
 	public void setCatagoryImage(byte[] catagoryImage) {
 		this.catagoryImage = catagoryImage;
 	}
-	public void setProducts(List<Product> products) {
-		this.products = products;
-	}
+
 	public String getName() {
 		return name;
 	}

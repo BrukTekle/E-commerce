@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.mum.domain.Catagory;
 import edu.mum.domain.Product;
+import edu.mum.service.CatagoryService;
 import edu.mum.service.ProductService;
 @Controller
 public class ProductController {
@@ -30,10 +31,13 @@ public class ProductController {
 	
 	@Autowired
 	ProductService productService;
+	@Autowired
+	CatagoryService catagoryService;
 	
     @RequestMapping({"/addProduct"})
     public String addProduct(@ModelAttribute("newProduct") Product product,Model model) {
-    	model.addAttribute("categoryList",productService.getAllProducts());
+    	model.addAttribute("categoryList",catagoryService.findAllCatagories());
+    	System.out.println(catagoryService.findAllCatagories());
         return "addProduct";
     }
     
