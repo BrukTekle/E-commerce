@@ -61,8 +61,7 @@ public class MemberController {
 		}
 
 		 //  Error caught by ControllerAdvice IF no authorization...
-		memberService.saveFull(memberToBeAdded);
-			
+		 memberService.saveFull(memberToBeAdded);
  	   	return "products";
  
 	}

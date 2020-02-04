@@ -22,7 +22,7 @@ public class UserCredentialsServiceImpl implements edu.mum.service.UserCredentia
  	@Autowired
  	BCryptPasswordEncoder passwordEncoder;
  	
-  	@PreAuthorize("hasRole('ROLE_ADMIN')")
+//  	@PreAuthorize("hasRole('ROLE_ADMIN')")
   	public void save(UserCredentials credentials) {
 	
    		String encodedPassword = passwordEncoder.encode(credentials.getPassword());
