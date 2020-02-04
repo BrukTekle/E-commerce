@@ -64,11 +64,11 @@
 				</div>
 
 				<div class="form-group">
-					<label class="control-label col-lg-2" for="condition"><spring:message code="addProduct.form.condition.label"/></label>
+					<label class="control-label col-lg-2" for="productCondition"><spring:message code="addProduct.form.productCondition.label"/></label>
 
-						<form:radiobutton path="condition" value="New" />New 
-						<form:radiobutton path="condition" value="Old" />Old
-						<form:radiobutton path="condition" value="Refurbished"/>Refurbished
+						<form:radiobutton path="productCondition" value="New" />New
+						<form:radiobutton path="productCondition" value="Old" />Old
+						<form:radiobutton path="productCondition" value="Refurbished"/>Refurbished
 	
 				</div>
 				
