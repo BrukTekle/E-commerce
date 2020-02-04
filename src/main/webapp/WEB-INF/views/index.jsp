@@ -42,9 +42,8 @@
 <!-- the header -->
 <header>
 
-    <!-- our main logo -->
     <a id="logo" href="index.html">
-        <img src="${pageContext.request.contextPath}/resource/images/avatar.png" alt="Logo">
+        <img src="${pageContext.request.contextPath}/resource/images/avatar.png" alt="Logo"/>
         <span>Ecommerce Website</span>
     </a>
 
@@ -57,7 +56,7 @@
             <li><a href="#" id="all-orders">All Orders</a></li>
             <li><a href="#" id="wish-list">Wish list</a></li>
             <li><a href="#" id="about">About</a></li>
-            <li><a href="#" id="signup">Sign Up</a></li>
+            <li><a href="http://localhost:8080/E-commerce/members/add" id="signup">Sign Up</a></li>
         </ul>
     </nav>
 
@@ -80,7 +79,7 @@
 
 <!-- the footer -->
 <footer>
-    <img src="<spring:url value="/resource/images/avatar.png"/>" alt="Footer Logo">
+    <img src="<spring:url value='/resource/images/avatar.png'/>" alt="Footer Logo">
     <span>Ecommerce Website</span>
 </footer>
 

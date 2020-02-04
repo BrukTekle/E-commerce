@@ -26,8 +26,7 @@
 
 	<!-- Implemented with Web based URL - Controller "METHOD" level authorization -->
 	<!-- the more specific rules need to come first, followed by the more general ones. -->
-	<!-- COMMENT out the following to see @Service METHOD level authorization -->
-	  <security:intercept-url pattern="/members/add" access="hasRole('ROLE_ADMIN')"/>  	
+	<!-- COMMENT out the following to see @Service METHOD level authorization --> 	
 	  <security:intercept-url pattern="/members" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')"  />
 <!-- Switch to HTTPS  NEED Tomcat with HTTPS enabled;   On access ..we are in HTTPS  -->
  <!--  	  <security:intercept-url pattern="**" access="permitAll" requires-channel="https"/> -->

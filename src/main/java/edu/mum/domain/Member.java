@@ -13,9 +13,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import edu.mum.validation.EmptyOrSize;
 import edu.mum.validation.NullMinNumber;
@@ -30,17 +33,19 @@ public class Member {
  	private Long id;
 	
 	@Column(length = 16)
-	@NotEmpty
+	@Size(min = 4, max = 50, message = "{Size.name.validation}")
 	private String firstName;
 	
 	@Column(length = 16)
-	@NotEmpty
-	@Size(min=5, max = 9, message= "{EmptyOrSize}")
+	@Size(min = 4, max = 50, message = "{Size.name.validation}")
 	private String lastName;
 
-	@NotEmpty
-	private Date dateOfBirth;
+//	@NotNull
+//	@Past
+// 	@DateTimeFormat(pattern = "yyyy/MM/dd")
+//	private Date dateOfBirth;
  	
+	
 	@NotEmpty
 	private String phone;
 	
@@ -62,13 +67,13 @@ public class Member {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-
-	public Date getDateOfBirth() {
-		return dateOfBirth;
-	}
-	public void setDateOfBirth(Date dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-	}
+//	
+//	public Date getDateOfBirth() {
+//		return dateOfBirth;
+//	}
+//	public void setDateOfBirth(Date dateOfBirth) {
+//		this.dateOfBirth = dateOfBirth;
+//	}
 	public List<Order> getOrders() {
 		return orders;
 	}

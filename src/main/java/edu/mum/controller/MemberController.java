@@ -48,21 +48,23 @@ public class MemberController {
 //	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
-	public String getAddNewMemberForm(@ModelAttribute("newMember") Member newMember) {
-	   return "addProduct";
+	public String getAddNewMemberForm(@ModelAttribute("newMember") Member newMember, Model model) {
+		model.addAttribute("user", newMember);
+	   return "signup";
 	}
 	   
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String processAddNewMemberForm(@ModelAttribute("newMember") @Valid Member memberToBeAdded, BindingResult result) {
- 
+			
+		System.out.println("I have been here");
 		if(result.hasErrors()) {
-			return "addProduct";
+			return "signup";
 		}
 
 			 //  Error caught by ControllerAdvice IF no authorization...
 			memberService.saveFull(memberToBeAdded);
 
- 	   	return "redirect:/members";
+ 	   	return "redirect:/products";
  
 	}
 	
