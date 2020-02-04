@@ -60,8 +60,8 @@ public class MemberController {
 			return "signup";
 		}
 
-			 //  Error caught by ControllerAdvice IF no authorization...
-			memberService.saveFull(memberToBeAdded);
+		 //  Error caught by ControllerAdvice IF no authorization...
+		memberService.saveFull(memberToBeAdded);
 			
  	   	return "products";
  
