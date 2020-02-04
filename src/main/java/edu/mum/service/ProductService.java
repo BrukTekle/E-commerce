@@ -1,14 +1,22 @@
 package edu.mum.service;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
-import edu.mum.domain.Catagory;
 import edu.mum.domain.Product;
 
+
 public interface ProductService {
-	public void save(Product catagory);
-	public List<Product> findAllProducts();
- 	public Product findOne(int id);
+
+	List<Product> getAllProducts();
+
+	Product getProductById(Long productID);
 	
+	List<Product> getProductsByCategory(String category);
+
+	Set<Product> getProductsByFilter(Map<String, List<String>> filterParams);
+	
+	void addProduct(Product product);
 
 }

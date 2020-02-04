@@ -16,18 +16,52 @@
 			</div>
 		</div>
 	</section>
+	<div>
+
+		<form:select path="catagory">
+			<form:option value=" NONE">--selectcatagory--</form:option>
+			<form:option value=${catagory.id}"> "${catagory}"></form:option>
+
+		</form:select>
+
+		<%-- <%-- 	<form:select path="catagory"  items="${catagory}" > </form:select
+	<form:select id="catagory" path="catagory.id" items="${catagory}"
+			itemValue="id" itemLabel="name" />
+ --%>
+
+		<ul>
+			<li><a href ="  ">product</a>
+			<li>
+		</ul>
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
 
 	<section class="container">
 		<div class="row">
 			<c:forEach items="${products}" var="product">
 				<div class="col-sm-6 col-md-3" style="padding-bottom: 15px">
 					<div class="thumbnail">
-					<img src="<c:url value="/resource/images/${product.productId}.png"></c:url>" alt="image"  style = "width:100%"/>
+						<img
+							src="<c:url value="/resource/images/${product.id}.png"></c:url>"
+							alt="image" style="width: 100%" />
 						<div class="caption">
 							<h3>${product.name}</h3>
 							<p>${product.description}</p>
-							<p>${product.unitPrice}USD</p>
-							<p>Available ${product.unitsInStock} units in stock</p>
+
+
 							<p>
 								<a
 									href=" <spring:url value="/products/product?id=${product.productId}" /> "

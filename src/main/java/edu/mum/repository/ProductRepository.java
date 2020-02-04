@@ -6,6 +6,5 @@ import org.springframework.stereotype.Repository;
 import edu.mum.domain.Product;
 
 @Repository
-public interface ProductRepository extends CrudRepository<Product, Integer> {
-	
-}
+public interface ProductRepository extends CrudRepository<Product,Long> {
+ 	}

@@ -4,15 +4,17 @@
 <html>
 <head>
     <title>My Awesome Website</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/style.css">
-    <%--<link rel="stylesheet"--%>
-          <%--href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">--%>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/style.css"/>
+          
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 
     <script>
         $(document).ready(function () {
             $("#products").click(function (event) {
                 $('#main').load("products");
+            });
+            $("#addProduct").click(function (event) {
+                $('#main').load("addProduct");
             });
             $("#all-orders").click(function (event) {
                 $('#main').load("all-orders");
@@ -54,6 +56,7 @@
     <nav>
         <ul>
             <li><a href="#" id="products">Products</a></li>
+            <li><a href="#" id="addProduct">Add Product</a></li>
             <li><a href="#" id="cart">Cart</a></li>
             <li><a href="#" id="user-orders">My Orders</a></li>
             <li><a href="#" id="all-orders">All Orders</a></li>
