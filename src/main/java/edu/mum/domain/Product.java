@@ -98,7 +98,7 @@ public class Product implements Serializable {
 	public void setProductImage(MultipartFile productImage) {
 		this.productImage = productImage;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
