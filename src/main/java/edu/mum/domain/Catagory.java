@@ -3,6 +3,7 @@ package edu.mum.domain;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -22,11 +23,17 @@ public class Catagory {
 	private String description;
 	private byte[] catagoryImage;
 	
-	 @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy="catagory", cascade = CascadeType.ALL)
 	private List<Product> products;
 	 
 	public List<Product> getProducts() {
 		return products;
+	}
+	public byte[] getCatagoryImage() {
+		return catagoryImage;
+	}
+	public void setCatagoryImage(byte[] catagoryImage) {
+		this.catagoryImage = catagoryImage;
 	}
 	public void setProducts(List<Product> products) {
 		this.products = products;
@@ -43,6 +50,5 @@ public class Catagory {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
 	
 }
