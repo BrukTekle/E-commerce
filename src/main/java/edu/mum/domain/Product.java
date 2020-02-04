@@ -2,19 +2,11 @@ package edu.mum.domain;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-
-import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 public class Product implements Serializable {
@@ -30,15 +22,15 @@ public class Product implements Serializable {
     private int amount;
     private byte[] productImage;
     
-	public List<Order> getOrders() {
+	public List<Orders> getOrders() {
 		return orders;
 	}
-	public void setOrders(List<Order> orders) {
+	public void setOrders(List<Orders> orders) {
 		this.orders = orders;
 	}
 	//    @ManyToMany(mappedBy = "productId")
      @ManyToMany(mappedBy = "products")
-	 private List<Order> orders;
+	 private List<Orders> orders;
 
     public int getAmount() {
 		return amount;

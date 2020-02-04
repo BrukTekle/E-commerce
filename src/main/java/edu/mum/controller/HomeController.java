@@ -32,18 +32,22 @@ public class HomeController {
     public String allOrders(Model model) {
         return "all-orders";
     }
+
     @RequestMapping({"/cart"})
     public String cart(Model model) {
         return "cart";
     }
+
     @RequestMapping({"/wish-list"})
     public String wishList(Model model) {
         return "wish-list";
     }
+
     @RequestMapping({"/about"})
     public String about(Model model) {
         return "about";
     }
+
     @RequestMapping({"/signup"})
     public String signup(Model model) {
         return "signup";
@@ -52,7 +56,7 @@ public class HomeController {
     @ModelAttribute("homeTestOrder")
     public String testOrder() {
 
-        // test interceptor Order
+        // test interceptor Orders
         System.out.println("CONTROLLER @MODELATTRIBUTE PREHANDLE");
 
         return "This is CONTROLLER ORDER!";
