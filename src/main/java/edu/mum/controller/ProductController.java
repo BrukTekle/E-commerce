@@ -88,7 +88,7 @@ public class ProductController {
     public String listProduct(Model model) {
     	
     	
-		List<Product> list = productSevice.findAllProducts();
+		List<Product> list = productService.getAllProducts();
 		model.addAttribute("product",  list);
 		
 		
@@ -98,9 +98,9 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value="/productDetail", method = RequestMethod.POST)
-    public String productDetail(@ModelAttribute("product")Product product ,Model model , @RequestParam("id") int productId) {
+    public String productDetail(@ModelAttribute("product")Product product ,Model model , @RequestParam("id") Long productId) {
     	
- productSevice.findOne(productId);
+		productService.getProductById(productId);
 		model.addAttribute(product);
 		
 		

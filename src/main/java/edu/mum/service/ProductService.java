@@ -19,9 +19,4 @@ public interface ProductService {
 	
 	void addProduct(Product product);
 
-import edu.mum.domain.Catagory;
-
-
-	
-
 }

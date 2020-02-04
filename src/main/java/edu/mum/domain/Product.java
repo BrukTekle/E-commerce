@@ -82,9 +82,6 @@ public String getImageURL() {
 	public void setUnitsInStock(int unitsInStock) {
 		this.unitsInStock = unitsInStock;
 	}
-	//@ManyToMany(mappedBy = "productId")
-    @ManyToMany(mappedBy = "products")
-	 private List<Order> orders;
     
     public String getManufacturer() {
 		return manufacturer;
