@@ -59,7 +59,7 @@
             <li><a href="#" id="all-orders">All Orders</a></li>
             <li><a href="#" id="wish-list">Wish list</a></li>
             <li><a href="#" id="about">About</a></li>
-            <li><a href="#" id="signup">Sign Up</a></li>
+            <li><a href="<spring:url value='/members/add' />" id="signup">Sign Up</a></li>
             <li><a href="#" id="login">Login</a></li>
         </ul>
     </nav>
