@@ -21,10 +21,7 @@ public class HomeController {
         return "index";
     }
 
-    @RequestMapping({"/products"})
-    public String product(Model model) {
-        return "products";
-    }
+
 
 
     @RequestMapping({"/user-orders"})
