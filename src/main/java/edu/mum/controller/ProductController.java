@@ -52,15 +52,16 @@ public class ProductController {
 
     @RequestMapping(value = "/addProduct", method = RequestMethod.POST)
     public String saveProduct(@ModelAttribute("newProduct") Product product, Model model, HttpServletRequest request) throws FileNotFoundException {
-
-//    	MultipartFile multipartFile=product.getProductImage();
-////    	byte[] multipartFile=product.getProductImage();
-//    	    	
+    	System.out.println("*******************************************************************************88888888");
+    	MultipartFile productImage=product.getProductImage();
+//    	byte[] multipartFile=product.getProductImage();
+    	Catagory catagory=catagoryService.findOne(product.getCatagory().getId());
+    	product.setCatagory(catagory);
 //		if(multipartFile != null || !multipartFile.isEmpty()){
 //			String filename=servletContext.getRealPath("/"+"resources\\images\\"+multipartFile.getOriginalFilename());
 //			try {
 //				multipartFile.transferTo(new File(filename));
-//				System.out.println(filename);
+//				System.out.println(filename+"==========================================================");
 //			}
 //			catch (IOException e) {
 //				throw new FileNotFoundException("Unable to save image: " + multipartFile.getOriginalFilename() );
@@ -69,16 +70,17 @@ public class ProductController {
 //		}
 //		
 //		try {
+//			System.out.println("===============++++++++++++++++++++==========================================================");
 //			productService.addProduct(product);
 //		} catch (Exception up) {
-//	     System.out.println("Transaction Failed!!!");
-    	System.out.println("reached here!!!");
-		MultipartFile productImage = product.getProductImage();
+//	     System.out.println(up+" Transaction Failed!!!");
+//		MultipartFile productImage = product.getProductImage();
 		String rootDirectory = request.getSession().getServletContext().getRealPath("/");
 		if (productImage!=null && !productImage.isEmpty()) {
 	       try {
 		      	productImage.transferTo(new File(rootDirectory + File.separator  + "resources" + File.separator  
 		                   + "images" + File.separator + product.getId() + ".png"));
+		      	System.out.println(product.getName());
 	       } catch (Exception e) {
 			throw new RuntimeException("Product Image saving failed", e);
 	       }
@@ -92,6 +94,8 @@ public class ProductController {
 	}
        
 		 return "index";
+		
+
 }
 	
 	

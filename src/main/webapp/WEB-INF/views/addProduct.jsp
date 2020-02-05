@@ -13,8 +13,8 @@
 		<h1>Add New products</h1>
 		<p>The admin will use this page to add new products</p>
 		
-		<form:form modelAttribute="newProduct" action="addProduct" method="post" enctype="multipart/form-data">
- 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+		<form:form modelAttribute="newProduct" action="addProduct" method="post" enctype="multipart/form-data"> 
+ 			<%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> --%>
  			<fieldset>
 				<legend>Add new product</legend>
 
@@ -50,8 +50,8 @@
 						<form:input id="category" path="catagory" /> --%>
 
 				  <div class="form-group">
-					<form:select path="">
-   						<form:option value="NONE" label="--- Select ---"/>
+					<form:select path="catagory.id">
+   						<form:option value="0" label="--- Select ---"/>
    						<form:options items="${categoryList}" itemLabel="name" itemValue="id" />
 					</form:select>
 				</div>   
@@ -72,13 +72,12 @@
 	
 				</div>
 				
-				<div class="form-group">
+				 <div class="form-group">
 					<label class="control-label col-lg-2" for="productImage"><spring:message code="addProduct.form.productImage.label"/></label>
 
 						<form:input id="productImage" path="productImage" type="file" />
 						
-				</div>
-
+				</div> 
 
 				<div class="form-group">
 						<input type="submit" id="btnAdd" class="btn btn-primary" value ="Add"/>
