@@ -20,7 +20,11 @@
                 $('#main').load("orders/all-orders");
             });
             $("#user-orders").click(function (event) {
-                $('#main').load("user-orders");
+
+                <security:authorize access="isAuthenticated()">
+                $('#main').load("orders/<security:authentication property="principal.username"/>");
+                </security:authorize>
+
             });
             $("#wish-list").click(function (event) {
                 $('#main').load("wish-list");
