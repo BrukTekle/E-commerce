@@ -14,7 +14,7 @@
 		<p>The admin will use this page to add new products</p>
 		
 		<form:form modelAttribute="newProduct" action="addProduct" method="post" enctype="multipart/form-data">
- 			
+ 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
  			<fieldset>
 				<legend>Add new product</legend>
 
@@ -48,13 +48,13 @@
 			<%-- 		<label for="category"><spring:message code="addProduct.form.category.label"/></label>
 
 						<form:input id="category" path="catagory" /> --%>
-<%-- 
+
 				  <div class="form-group">
 					<form:select path="">
    						<form:option value="NONE" label="--- Select ---"/>
-   						<form:options items="${categoryList}" item itemValue="${categoryList.id}" />
+   						<form:options items="${categoryList}" itemLabel="name" itemValue="id" />
 					</form:select>
-				</div>   --%> 
+				</div>   
 				
 				<div class="form-group">
 					<label class="control-label col-lg-2" for="unitsInStock"><spring:message code="addProduct.form.unitsInStock.label"/></label>
@@ -84,7 +84,6 @@
 						<input type="submit" id="btnAdd" class="btn btn-primary" value ="Add"/>
 
 				</div>
-				
 			</fieldset>
 		</form:form>
 	</div>

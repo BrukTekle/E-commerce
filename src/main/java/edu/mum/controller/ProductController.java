@@ -72,7 +72,7 @@ public class ProductController {
 //			productService.addProduct(product);
 //		} catch (Exception up) {
 //	     System.out.println("Transaction Failed!!!");
-	
+    	System.out.println("reached here!!!");
 		MultipartFile productImage = product.getProductImage();
 		String rootDirectory = request.getSession().getServletContext().getRealPath("/");
 		if (productImage!=null && !productImage.isEmpty()) {

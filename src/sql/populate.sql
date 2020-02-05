@@ -30,9 +30,9 @@ INSERT INTO `catagory` (name,description) VALUES ('outfits','long sleev Top');
 
 INSERT INTO `catagory` (name,description) VALUES ('outfits','long sleev Top');
 
-INSERT INTO `product` ( id , name , amount ,price,cid) VALUES (1,"Mackbook pro",500,1000,1);
-INSERT INTO `product` ( id , name , amount ,price,cid) VALUES (2,"Samsung TV",500,2000,1);
-INSERT INTO `product` ( id , name , amount ,price,cid) VALUES (3,"Iphone 12",500,900,1);
+INSERT INTO `product` (name , amount ,price,cid) VALUES ("Mackbook pro",500,1000,1);
+INSERT INTO `product` (name , amount ,price,cid) VALUES ("Samsung TV",500,2000,1);
+INSERT INTO `product` (name , amount ,price,cid) VALUES ("Iphone 12",500,900,1);
 
 INSERT INTO `orders` ( orderId , member_id ) VALUES (1,1);
 INSERT INTO `orders` ( orderId , member_id ) VALUES (2,2);
