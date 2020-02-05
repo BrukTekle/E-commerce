@@ -6,8 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import edu.mum.domain.Product;
-
 @Controller
 public class HomeController {
 
@@ -21,15 +19,12 @@ public class HomeController {
         return "index";
     }
 
-    @RequestMapping({"/products"})
-    public String product(Model model) {
-        return "products";
-    }
+
 
 
     @RequestMapping({"/user-orders"})
     public String userOrders(Model model) {
-        return "user-orders";
+        return "my-orders";
     }
 
     @RequestMapping({"/all-orders"})

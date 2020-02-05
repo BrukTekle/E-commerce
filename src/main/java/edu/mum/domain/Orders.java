@@ -13,13 +13,22 @@ public class Orders {
     private Long orderId;
     private Date date;
     private Double totalPrice;
+//    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//	@JoinTable(name="productId")
+//	private List<Product> products;
+//    public List<Product> getProducts() {
+//		return products;
+//	}
+//
+//	public void setProducts(List<Product> products) {
+//		this.products = products;
+//	}
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "order")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "order")
     private List<CartItem> cartItems;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Members member;
-
     public Date getDate() {
         return date;
     }
@@ -38,6 +47,7 @@ public class Orders {
     }
 
     public Double getTotalPrice() {
+        totalPrice = calculateTotalPrice();
         return totalPrice;
     }
 
@@ -60,4 +70,10 @@ public class Orders {
     public void setMember(Members member) {
         this.member = member;
     }
+
+
+    private Double calculateTotalPrice() {
+        return cartItems.stream().mapToDouble((x) -> x.getAmount() * x.getProduct().getPrice()).sum();
+    }
+
 }

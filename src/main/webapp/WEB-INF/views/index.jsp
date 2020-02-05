@@ -6,8 +6,8 @@
     <title>My Awesome Website</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/style.css"/>
 
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	
     <script>
         $(document).ready(function () {
             $("#products").click(function (event) {
@@ -20,7 +20,11 @@
                 $('#main').load("orders/all-orders");
             });
             $("#user-orders").click(function (event) {
-                $('#main').load("user-orders");
+
+                <security:authorize access="isAuthenticated()">
+                $('#main').load("orders/<security:authentication property="principal.username"/>");
+                </security:authorize>
+
             });
             $("#wish-list").click(function (event) {
                 $('#main').load("wish-list");
