@@ -31,7 +31,6 @@ INSERT INTO catagory (name, description) VALUES ('Electronics', 'That pretty muc
 
 INSERT INTO `catagory` (name,description) VALUES ('outfits','long sleev Top');
 
-INSERT INTO `product` (name , amount ,price,cId) VALUES ("Mackbook pro",500,1000,1);
 INSERT INTO `product` (name , amount ,price,cId) VALUES ("Samsung TV",500,2000,1);
 INSERT INTO `product` (name , amount ,price,catagory_id) VALUES ("Iphone 12",500,900,1);
 INSERT INTO `product` (name , amount ,price,catagory_id) VALUES ("Samsung TV",500,2000,1);
@@ -42,16 +41,4 @@ INSERT INTO `product` (name , amount ,price,catagory_id) VALUES ("Iphone 8",500,
 INSERT INTO `product` (name , amount ,price,catagory_id) VALUES ("Iphone 1",500,100,1);
 INSERT INTO `product` (name , amount ,price,catagory_id) VALUES ("Iphone 7",500,900,1);
 INSERT INTO `product` (name , amount ,price,catagory_id) VALUES ("Iphone 5",500,900,1);
-
-INSERT INTO `orders` ( orderId , member_id ) VALUES (1,1);
-INSERT INTO `orders` ( orderId , member_id ) VALUES (2,2);
-INSERT INTO `orders` ( orderId , member_id ) VALUES (3,1);
-INSERT INTO `orders` ( orderId , member_id ) VALUES (4,2);
-
-INSERT INTO `cartitem` ( id , order_id , amount ,product_id) VALUES (1,1,1,1);
-INSERT INTO `cartitem` ( id , order_id , amount ,product_id) VALUES (2,1,1,2);
-INSERT INTO `cartitem` ( id , order_id , amount ,product_id) VALUES (3,1,1,3);
-INSERT INTO `cartitem` ( id , order_id , amount ,product_id) VALUES (4,2,1,1);
-INSERT INTO `cartitem` ( id , order_id , amount ,product_id) VALUES (5,3,1,3);
-INSERT INTO `cartitem` ( id , order_id , amount ,product_id) VALUES (6,4,1,2);
 
