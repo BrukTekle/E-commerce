@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -13,6 +14,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -51,8 +53,9 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/addProduct", method = RequestMethod.POST)
-    public String saveProduct(@ModelAttribute("newProduct") Product product, Model model, HttpServletRequest request) throws FileNotFoundException {
-    	System.out.println("*******************************************************************************88888888");
+    public String saveProduct(@Valid @ModelAttribute("newProduct") Product product,BindingResult result, HttpServletRequest request) throws FileNotFoundException {
+    	if (result.hasErrors())
+    		return "addProduct";
     	MultipartFile productImage=product.getProductImage();
 //    	byte[] multipartFile=product.getProductImage();
     	Catagory catagory=catagoryService.findOne(product.getCatagory().getId());

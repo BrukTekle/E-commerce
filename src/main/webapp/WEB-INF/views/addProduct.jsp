@@ -6,6 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Products</title>
+	  	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script type="text/javascript" src="<spring:url value="/resource/js/cart.js"/>"></script>
 </head>
 <body>
 <section>
@@ -19,37 +21,40 @@
 				<legend>Add new product</legend>
 
 				<form:errors path="*" cssClass="alert alert-danger" element="div"/>
-
+<div>
 					<label for="pname"><spring:message code="addProduct.form.name.label"/></label>
-					<div>
-						<form:input id="pname" path="name" type="text"/>
-						<%-- <form:errors path="name" cssClass="text-danger"/> --%>
-					</div>
 					
+						<form:input id="pname" path="name" type="text"/>
+						<form:errors path="name" cssStyle="color : red;"/> 
+					
+					</div>
+					<div>
 					<label for="unitPrice"><spring:message code="addProduct.form.unitPrice.label"/></label>
 
-						<div >
+						
 							<form:input id="unitPrice" path="price" />
-							<%-- <form:errors path="price" /> --%>
-	
-					</div>
-	
+							<form:errors path="price" cssStyle="color : red;"/> 
+	</div>
+					
+	<div>
 
 					<label for="description"><spring:message code="addProduct.form.description.label"/></label>
-					<div>
+					
 						<form:textarea id="description" path="description" rows = "2"/>
+						<form:errors path="description" cssStyle="color : red;"/> 
 					</div>
 
+<div>
+					<label for="manufacturer"><spring:message code="addProduct.form.manufacturer.label"/></label>
 
-					<label class="control-label col-lg-2" for="manufacturer"><spring:message code="addProduct.form.manufacturer.label"/></label>
-
-						<form:input id="manufacturer" path="manufacturer" type="text" class="form:input-large"/>
+						<form:input id="manufacturer" path="manufacturer" type="text" />
 
 			<%-- 		<label for="category"><spring:message code="addProduct.form.category.label"/></label>
 
 						<form:input id="category" path="catagory" /> --%>
-
-				  <div class="form-group">
+</div>
+				  <div >
+				  <label ><spring:message code="addProduct.form.catagory.label"/></label>
 					<form:select path="catagory.id">
    						<form:option value="0" label="--- Select ---"/>
    						<form:options items="${categoryList}" itemLabel="name" itemValue="id" />
@@ -57,7 +62,7 @@
 				</div>   
 				
 				<div class="form-group">
-					<label class="control-label col-lg-2" for="unitsInStock"><spring:message code="addProduct.form.unitsInStock.label"/></label>
+					<label for="unitsInStock"><spring:message code="addProduct.form.unitsInStock.label"/></label>
 
 						<form:input id="unitsInStock" path="amount" type="text" class="form:input-large"/>
 
@@ -86,7 +91,63 @@
 			</fieldset>
 		</form:form>
 	</div>
+	
+<%-- 	<div>
+	<form:form modelAttribute="newCatagory" action="addCatagory" method="post"  >
+			<fieldset>
+				<legend>Add new Catagory</legend>
+
+				<form:errors path="*" cssClass="alert alert-danger" element="div"/>
+
+					<label for="cname"><spring:message code="addCatagory.form.name.label"/></label>
+					<div>
+						<form:input id="cname" path="name" type="text"/>
+						<form:errors path="name" cssClass="text-danger"/>
+					</div>
+					
+					<label for="description"><spring:message code="addCatagory.form.description.label"/></label>
+
+						<div >
+							<form:input id="description" path="description" />
+							<form:errors path="price" />
+							
+							<div>
+						<input type="submit" id="btnAdd" class="btn btn-primary" value ="Add Catagory"/>
+
+				</div>
+							
+	
+					</div>
+			</fieldset>
+	
+	</form:form>
+	</div> --%>
+	
+	<form id="categoryForm" method="post">
+
+			<input type="hidden" name="id" value="0">
+          
+          <p>
+            <label for="name"> Name    : </label>
+             <input type="text" name="name" id="name" value="" />
+        </p>
+ 
+         <p>
+            <label for="description"> Description: </label>
+            <input id="description" name="description" type="text"/>
+        </p>
+ 
+             <input type="button" value="Add Category" onclick="categorySubmit();return false;">    
+    </form>
 
 </section>
+
+<div id="result" style="display:none" >   	
+    	    <p id="success" > 
+
+    		</p> 
+    		<p id="errors" > 
+    		</p>
+    	</div>
 </body>
 </html>

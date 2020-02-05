@@ -13,9 +13,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlTransient;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 @Entity
@@ -26,10 +29,14 @@ public class Product implements Serializable {
     @Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
+    @NotEmpty
 	private String name;
+    @NotEmpty
     private String description;
+    @NotNull
     private Float price;
 	private String manufacturer;
+	@NotNull
     private Integer amount;
 	@JsonIgnore 
 	@Transient

@@ -31,8 +31,8 @@ INSERT INTO catagory (name, description) VALUES ('Electronics', 'That pretty muc
 
 INSERT INTO `catagory` (name,description) VALUES ('outfits','long sleev Top');
 
-INSERT INTO `product` (name , amount ,price,catagory_id) VALUES ("Mackbook pro",500,1000,1);
-INSERT INTO `product` (name , amount ,price,catagory_id) VALUES ("Samsung TV",500,2000,1);
+INSERT INTO `product` (name , amount ,price,cId) VALUES ("Mackbook pro",500,1000,1);
+INSERT INTO `product` (name , amount ,price,cId) VALUES ("Samsung TV",500,2000,1);
 INSERT INTO `product` (name , amount ,price,catagory_id) VALUES ("Iphone 12",500,900,1);
 INSERT INTO `product` (name , amount ,price,catagory_id) VALUES ("Samsung TV",500,2000,1);
 INSERT INTO `product` (name , amount ,price,catagory_id) VALUES ("Iphone 12",500,900,1);

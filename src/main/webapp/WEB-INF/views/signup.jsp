@@ -10,12 +10,12 @@
 </head>
 <body>
 	<section>
-		<div class="jumbotron">
+
 			<div class="container">
 				<h1>Sign Up Here</h1>
 				<!-- <p>Add a new one<p> -->
 			</div>
-		</div>
+
 	</section>
 	<section class="container">
 		<form:form  modelAttribute="newMember" class="form-horizontal"  >
