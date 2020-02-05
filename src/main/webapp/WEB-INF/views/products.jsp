@@ -60,9 +60,9 @@
             </c:if>
             <td>
                 <div class="card">
-                    <img src="${pageContext.request.contextPath}/resource/images/P1234.png" alt="Denim Jeans" style="width:25%">
+                    <img src="${pageContext.request.contextPath}/resource/images/P1234.png" alt="Denim Jeans" style="width:50%">
                     <h1>${product.name}</h1>
-                    <p class="price">${product.name}</p>
+                    <p class="price">${product.price}</p>
                     <p>${product.description}</p>
                     <p>
                         <button>Add to Cart</button>
