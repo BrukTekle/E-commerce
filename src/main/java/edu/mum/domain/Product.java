@@ -31,7 +31,6 @@ public class Product implements Serializable {
     private Integer id;
     @NotEmpty
 	private String name;
-    @NotEmpty
     private String description;
     @NotNull
     private Float price;
