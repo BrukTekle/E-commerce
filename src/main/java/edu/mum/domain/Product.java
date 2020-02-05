@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
+import javax.xml.bind.annotation.XmlTransient;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.web.multipart.MultipartFile;
@@ -24,7 +25,7 @@ public class Product implements Serializable {
 
     @Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-    private Long id;
+    private Integer id;
 	private String name;
     private String description;
     private Float price;
@@ -33,13 +34,18 @@ public class Product implements Serializable {
 	@JsonIgnore 
 	@Transient
     private MultipartFile productImage;
-	private String imageURL;
+//	private String imageURL;
 	private String productCondition;
 
-    @ManyToOne
+    @ManyToOne//(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name="cId")
    	private Catagory catagory;
     
-    public void setId(Long id) {
+    // @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//    @JoinColumn(name = "order_id")
+//    private Orders order;
+    
+    public void setId(Integer id) {
 	this.id = id;
     }
 	public String getProductCondition() {
@@ -62,12 +68,12 @@ public class Product implements Serializable {
 		return amount;
 	}
 	
-	public String getImageURL() {
-		return imageURL;
-	}
-	public void setImageURL(String imageURL) {
-		this.imageURL = imageURL;
-	}
+//	public String getImageURL() {
+//		return imageURL;
+//	}
+//	public void setImageURL(String imageURL) {
+//		this.imageURL = imageURL;
+//	}
     public Catagory getCatagory() {
 		return catagory;
 	}
@@ -75,7 +81,7 @@ public class Product implements Serializable {
 		this.catagory = catagory;
 	}
     
-	public long getId() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -92,6 +98,8 @@ public class Product implements Serializable {
 	public void setManufacturer(String manufacturer) {
 		this.manufacturer = manufacturer;
 	}
+	
+	@XmlTransient 
 	public MultipartFile getProductImage() {
 		return productImage;
 	}

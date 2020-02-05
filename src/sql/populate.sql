@@ -21,18 +21,19 @@ INSERT INTO authority (id,username, authority) VALUES (2,'admin', 'ROLE_ADMIN');
 INSERT INTO authority (id,username, authority) VALUES (3,'admin', 'ROLE_USER');
 
 INSERT INTO address (city, country, state,street,zipCode) VALUES ('Asmara', 'Eritrea', 'IA','203','1299');
-INSERT INTO catagory (name, description) VALUES ('Electronics', 'That pretty much work by electricity');
+
 
 INSERT INTO  `members` (id,firstName, lastName,phone,addressId,member_id) VALUES (1,'Curious','George','12345678',1,'admin');
 INSERT INTO `members` (id,firstName, lastName,phone,addressId,member_id) VALUES (2,'Allen','Rench','87654321',1,'guest');
 INSERT INTO `catagory` (name,description) VALUES ('electronics','smart one');
 INSERT INTO `catagory` (name,description) VALUES ('outfits','long sleev Top');
+INSERT INTO catagory (name, description) VALUES ('Electronics', 'That pretty much work by electricity');
 
 INSERT INTO `catagory` (name,description) VALUES ('outfits','long sleev Top');
 
 INSERT INTO `product` (name , amount ,price,cid) VALUES ("Mackbook pro",500,1000,1);
-INSERT INTO `product` (name , amount ,price,cid) VALUES ("Samsung TV",500,2000,1);
-INSERT INTO `product` (name , amount ,price,cid) VALUES ("Iphone 12",500,900,1);
+INSERT INTO `product` (name , amount ,price,cid) VALUES ("Samsung TV",500,2000,2);
+INSERT INTO `product` (name , amount ,price,cid) VALUES ("Iphone 12",500,900,3);
 
 INSERT INTO `orders` ( orderId , member_id ) VALUES (1,1);
 INSERT INTO `orders` ( orderId , member_id ) VALUES (2,2);
