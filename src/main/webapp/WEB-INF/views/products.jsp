@@ -1,113 +1,80 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-    <title>Products</title>
-
-    <script>
-
-        $(document).ready(function () {
-
-            <security:authorize access="isAuthenticated()">
-            $(".add-to-card").click(function (event) {
-                $.ajax({
-                    url: "addProductToCard",
-                    type: 'Post',
-                    async: false,
-                    data: {
-                        "productId": event.target.id,
-                        "username": <security:authentication property="principal.username"/>
-                    },
-                    success: function (data) {
-                           alert("Product was added to the card successfully}");
-                    }
-                });
-            });
-            </security:authorize>
-        });
-    </script>
-
-    <style>
-        .card {
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            max-width: 300px;
-            margin: auto;
-            text-align: center;
-            font-family: arial;
-        }
-
-        .price {
-            color: grey;
-            font-size: 22px;
-        }
-
-        .card button {
-            border: none;
-            outline: 0;
-            padding: 12px;
-            color: white;
-            background-color: #000;
-            text-align: center;
-            cursor: pointer;
-            width: 100%;
-            font-size: 18px;
-        }
-
-        .card button:hover {
-            opacity: 0.7;
-        }
-
-
-    </style>
+<title>Products</title>
 </head>
 <body>
-<section>
-    <div class="jumbotron">
-        <div class="container">
-            <h1>Products</h1>
-            <p>All the available products in our store</p>
-        </div>
-    </div>
-</section>
-<table>
-    <c:forEach items="${productList}" var="product" varStatus="stat">
-        <fmt:parseNumber var="i" type="number" value="${stat.index}"></fmt:parseNumber>
-        <c:if test="${i%5==0}">
+	<section>
+		<div class="jumbotron">
+			<div class="container">
+				<h1>Products</h1>
+				<p>All the available products in our store</p>
+			</div>
+		</div>
+	</section>
+	<div>
 
-            <section class="container">
-            <tr class="row">
+		<form:select path="catagory">
+			<form:option value=" NONE">--selectcatagory--</form:option>
+			<form:option value=${catagory.id}"> "${catagory}"></form:option>
 
-            </c:if>
-            <td>
-                <div class="card"><!--  P1234.png-->
-                    <img src="${pageContext.request.contextPath}/resource/images/${product.name}.png" alt="Denim Jeans" style="width:25%"/>
-                    <h1>${product.name}</h1>
-                    <p class="price">${product.price}</p>
-                    <p>${product.description}</p>
-                    <p>
-                        <button>Add to Cart</button>
-                    </p>
-                </div>
-            </td>
-            <c:if test="${i%5+1==0}">
+		</form:select>
 
-            </tr>
-            </section>
+		<%-- <%-- 	<form:select path="catagory"  items="${catagory}" > </form:select
+	<form:select id="catagory" path="catagory.id" items="${catagory}"
+			itemValue="id" itemLabel="name" />
+ --%>
 
-        </c:if>
+		<ul>
+			<li><a href ="  ">product</a>
+			<li>
+		</ul>
+
+	</div>
 
 
-    </c:forEach>
 
 
-</table>
 
 
-</div>
 
 
+
+
+
+
+	</div>
+
+	<section class="container">
+		<div class="row">
+			<c:forEach items="${products}" var="product">
+				<div class="col-sm-6 col-md-3" style="padding-bottom: 15px">
+					<div class="thumbnail">
+						<img
+							src="<c:url value="/resource/images/${product.id}.png"></c:url>"
+							alt="image" style="width: 100%" />
+						<div class="caption">
+							<h3>${product.name}</h3>
+							<p>${product.description}</p>
+
+
+							<p>
+								<a
+									href=" <spring:url value="/products/product?id=${product.productId}" /> "
+									class="btn btn-primary"> <span
+									class="glyphicon-info-sign glyphicon" /></span> Details
+								</a>
+							</p>
+
+						</div>
+					</div>
+				</div>
+			</c:forEach>
+		</div>
+	</section>
 </body>
 </html>

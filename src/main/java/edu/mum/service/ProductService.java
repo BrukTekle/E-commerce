@@ -9,19 +9,14 @@ import edu.mum.domain.Product;
 
 public interface ProductService {
 
-    List<Product> getAllProducts();
+	List<Product> getAllProducts();
 
-    Product getProductById(Long productID);
+	Product getProductById(Long productID);
+	
+	List<Product> getProductsByCategory(String category);
 
-    List<Product> getProductsByCategory(String category);
-
-    Set<Product> getProductsByFilter(Map<String, List<String>> filterParams);
-
-    void addProduct(Product product);
-
-    void addProductToCard(Long productId, String username);
-
-    void decreaseAmount(Long productId, Integer number);
-
+	Set<Product> getProductsByFilter(Map<String, List<String>> filterParams);
+	
+	void addProduct(Product product);
 
 }

@@ -48,15 +48,5 @@ public class ProductServiceImpl implements ProductService {
 		productRepository.save(product);
 		
 	}
-
-	@Override
-	public void addProductToCard(Long productId, String username) {
-
-	}
-
-	@Override
-	public void decreaseAmount(Long productId, Integer number) {
-
-	}
-
+	
 }
