@@ -62,7 +62,7 @@
                 <div class="card"><!--  P1234.png-->
                     <img src="${pageContext.request.contextPath}/resource/images/${product.name}.png" alt="Denim Jeans" style="width:25%"/>
                     <h1>${product.name}</h1>
-                    <p class="price">${product.name}</p>
+                    <p class="price">${product.price}</p>
                     <p>${product.description}</p>
                     <p>
                         <button>Add to Cart</button>

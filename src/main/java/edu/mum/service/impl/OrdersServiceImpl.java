@@ -25,6 +25,11 @@ public class OrdersServiceImpl implements OrdersService {
     }
 
     @Override
+    public List<Orders> findOrderForUser(String username) {
+        return ordersRepository.findOrderForUser( username);
+    }
+
+    @Override
     public Orders findOne(Long id) {
         return ordersRepository.findOne(id);
     }
