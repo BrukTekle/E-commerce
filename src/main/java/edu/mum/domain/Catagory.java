@@ -1,5 +1,6 @@
 package edu.mum.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -14,20 +15,32 @@ import javax.persistence.OneToMany;
 import org.springframework.web.multipart.MultipartFile;
 
 @Entity
-public class Catagory {
+public class Catagory implements Serializable {
 
+	
+	private static final long serialVersionUID = 748392398L;
 	@Id
+	@Column(name="cId")
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private Integer id;
 	private String name;
 	private String description;
 	private byte[] catagoryImage;
 	
-	@OneToMany(mappedBy="catagory", cascade = CascadeType.ALL)
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	@OneToMany(mappedBy="catagory")
 	private List<Product> products;
-	 
+
 	public List<Product> getProducts() {
 		return products;
+	}	
+	public void setProducts(List<Product> products) {
+		this.products = products;
 	}
 	public byte[] getCatagoryImage() {
 		return catagoryImage;
@@ -35,9 +48,7 @@ public class Catagory {
 	public void setCatagoryImage(byte[] catagoryImage) {
 		this.catagoryImage = catagoryImage;
 	}
-	public void setProducts(List<Product> products) {
-		this.products = products;
-	}
+
 	public String getName() {
 		return name;
 	}

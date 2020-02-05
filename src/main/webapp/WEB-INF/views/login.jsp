@@ -55,7 +55,7 @@
                 </div>
                 <input class="btn btn-lg btn-success btn-mini" type="submit" value="Login">
             </fieldset>
-            <security:csrfInput/>
+           <security:csrfInput/> 
         </form>
     </div>
 </div>

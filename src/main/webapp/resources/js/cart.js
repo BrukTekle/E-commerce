@@ -4,8 +4,9 @@ $(document).ready(function() {
 	
 	var cartId;
 	var contextRoot = "/" + window.location.pathname.split( '/' )[1];
-
+	
 	addToCart = function(productId){
+		
 			$.ajax({
 		 		url: contextRoot + '/rest/cart/add/' + productId,
 		 		type: 'PUT',
@@ -33,7 +34,44 @@ $(document).ready(function() {
 			 	 } 
 		   });
 	   }
+	   
+	   //add catagory
+	   categorySubmit = function (){
+		   alert('my message');
+		   	var dataToSend = JSON.stringify(serializeObject($('#categoryForm')));	   	
+		   	 $.ajax({
+				type: 'POST',
+				url: contextRoot + '/addCatagory',
+				dataType: "json",         
+		 		data:dataToSend,
+		 		contentType: 'application/json',   
+				success: function(){
+					$('#errors').html("");
+		 			$("#result").append( '<H3 align="center"> OKAY!! <H3>');                
+			 	    $('#result').show();
+				},
+		 
+				error: function(errorObject ){	
 
+					if (errorObject.responseJSON.errorType == "ValidationError") {
+			 			$('#success').html("");
+			 			$('#errors').html("");
+			 			$("#errors").append( '<H3 align="center"> Error(s)!! <H3>');                
+			  			    $("#result").append( '<p>');
+			  	
+			  			    var errorList = errorObject.responseJSON.errors;
+			 	 	        $.each(errorList,  function(i,error) {			   
+			 		    		$("#errors").append( error.message + '<br>');
+					    	});
+			 	 	        $("#errors").append( '</p>');
+			 	 	        $('#result').show();
+					}
+					else {
+						alert(errorObject.responseJSON.errors(0));   
+					}
+		 		}
+			});
+		}
 	   
 	   
 	 // Click on Product [row]  in cart
@@ -104,6 +142,7 @@ $(document).ready(function() {
 		 }
 
 */
+	   
 });
 
  
