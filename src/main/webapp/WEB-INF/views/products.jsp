@@ -7,6 +7,29 @@
 
     <title>Products</title>
 
+    <script>
+
+        $(document).ready(function () {
+
+            <security:authorize access="isAuthenticated()">
+            $(".add-to-card").click(function (event) {
+                $.ajax({
+                    url: "addProductToCard",
+                    type: 'Post',
+                    async: false,
+                    data: {
+                        "productId": event.target.id,
+                        "username": <security:authentication property="principal.username"/>
+                    },
+                    success: function (data) {
+                           alert("Product was added to the card successfully}");
+                    }
+                });
+            });
+            </security:authorize>
+        });
+    </script>
+
     <style>
         .card {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -49,41 +72,42 @@
         </div>
     </div>
 </section>
-    <table>
-        <c:forEach items="${productList}" var="product" varStatus="stat">
-            <fmt:parseNumber var="i" type="number" value="${stat.index}"></fmt:parseNumber>
-            <c:if test="${i%5==0}">
+<table>
+    <c:forEach items="${productList}" var="product" varStatus="stat">
+        <fmt:parseNumber var="i" type="number" value="${stat.index}"></fmt:parseNumber>
+        <c:if test="${i%5==0}">
 
-                <section class="container">
-                <tr class="row">
+            <section class="container">
+            <tr class="row">
 
-            </c:if>
-            <td>
-                <div class="card">
-                    <img src="${pageContext.request.contextPath}/resource/images/P1234.png" alt="Denim Jeans" style="width:50%">
-                    <h1>${product.name}</h1>
-                    <p class="price">${product.price}</p>
-                    <p>${product.description}</p>
-                    <p>
-                        <button>Add to Cart</button>
-                    </p>
-                </div>
-            </td>
-            <c:if test="${i%5+1==0}">
+        </c:if>
+        <td>
+            <div class="card">
+                <img src="${pageContext.request.contextPath}/resource/images/P1234.png" alt="Denim Jeans"
+                     style="width:50%">
+                <h1>${product.name}</h1>
+                <p class="price">${product.price}</p>
+                <p>${product.description}</p>
+                <p>
+                    <button id="${product.id}" class="add-to-card">Add to Cart</button>
+                </p>
+            </div>
+        </td>
+        <c:if test="${i%5+1==0}">
 
-                </tr>
-                </section>
+            </tr>
+            </section>
 
-            </c:if>
-
-
-        </c:forEach>
+        </c:if>
 
 
-    </table>
+    </c:forEach>
 
 
-    </div>
+</table>
+
+
+</div>
 
 
 </body>
