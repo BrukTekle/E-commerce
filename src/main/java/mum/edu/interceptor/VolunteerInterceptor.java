@@ -4,6 +4,8 @@ import java.security.Principal;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -18,7 +20,7 @@ public class VolunteerInterceptor extends HandlerInterceptorAdapter {
 
 		// test interceptor Orders
 		System.out.println("INTERCEPTOR PREHANDLE");
- 	
+		
 		return true;
 		
 	}
@@ -29,8 +31,12 @@ public class VolunteerInterceptor extends HandlerInterceptorAdapter {
 	String userMessage = "Become a Community Members - Join the Team!";
  
 		Principal principal = request.getUserPrincipal();
+		HttpSession session = request.getSession();
 
 		if (principal != null) {
+			if(session == null  ) {
+				
+			}
 			if (request.isUserInRole("ROLE_ADMIN") )
 				userMessage = "There is ALWAYS Free cookies at www.freebies.com";
 			else 

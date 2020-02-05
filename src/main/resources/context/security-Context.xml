@@ -47,8 +47,19 @@
  <!-- END of comment out  for BASIC Login -->
  
     
-         <security:logout logout-success-url="/logout" 
-          delete-cookies="JSESSIONID" />    
+    
+    
+    
+    
+    
+          <security:logout logout-success-url="/logout" 
+          delete-cookies="JSESSIONID" />   
+          
+          
+          
+          
+          <!-- <security:logout invalidate-session="true" logout-url="/logout" logout-success-url="/login"/> -->
+          
        
  		   <!-- enable remember me -->
  	<security:remember-me data-source-ref="dataSource" 

@@ -45,7 +45,6 @@ public class UserCredentialsServiceImpl implements edu.mum.service.UserCredentia
 		return userCredentialsRepository.findOne(id);
 	}
 
-
 	public UserCredentials findByUsername(String userName) {
 		return userCredentialsRepository.findByUsername(userName);
 	}
