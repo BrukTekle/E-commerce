@@ -3,7 +3,9 @@ package edu.mum.domain;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,12 +35,14 @@ public class Product implements Serializable {
     private MultipartFile productImage;
 	private String imageURL;
 	private String productCondition;
-    @ManyToOne
-    @JoinColumn(name="cid")
+	
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn
    	private Catagory catagory;
+    
     public void setId(Long id) {
 	this.id = id;
-}
+    }
 	public String getProductCondition() {
 		return productCondition;
 	}
@@ -58,16 +62,6 @@ public class Product implements Serializable {
     public Integer getAmount() {
 		return amount;
 	}
-
-
-//    public void setProductImage(byte[] productImage) {
-//		this.productImage = productImage;
-//	}
-//    
-//	public byte[] getProductImage() {
-//		return productImage;
-//	}
-	
 	
 	public String getImageURL() {
 		return imageURL;

@@ -48,13 +48,13 @@
 			<%-- 		<label for="category"><spring:message code="addProduct.form.category.label"/></label>
 
 						<form:input id="category" path="catagory" /> --%>
-
+<%-- 
 				  <div class="form-group">
-					<form:select path="cid">
+					<form:select path="">
    						<form:option value="NONE" label="--- Select ---"/>
-   						<form:options items="${categoryList}" itemValue="id" />
+   						<form:options items="${categoryList}" item itemValue="${categoryList.id}" />
 					</form:select>
-				</div>  
+				</div>   --%> 
 				
 				<div class="form-group">
 					<label class="control-label col-lg-2" for="unitsInStock"><spring:message code="addProduct.form.unitsInStock.label"/></label>
@@ -86,8 +86,6 @@
 				</div>
 				
 			</fieldset>
- 			
- 			
 		</form:form>
 	</div>
 

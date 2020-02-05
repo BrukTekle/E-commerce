@@ -100,10 +100,8 @@
                     </tr>
                 </c:forEach>
             </table>
-
         </div>
     </tr>
-
     </table>
 
 </c:forEach>

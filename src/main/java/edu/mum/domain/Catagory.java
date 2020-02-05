@@ -29,7 +29,7 @@ public class Catagory {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	@OneToMany(mappedBy="catagory", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy="catagory")
 	private List<Product> products;
 	 
 	public List<Product> getProducts() {

@@ -72,7 +72,7 @@ public class ProductController {
 		                   + "images" + File.separator + product.getId() + ".png"));
 	       } catch (Exception e) {
 			throw new RuntimeException("Product Image saving failed", e);
-	   }
+	       }
 	   }
 
 	try {

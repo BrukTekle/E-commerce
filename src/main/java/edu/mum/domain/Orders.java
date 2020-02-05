@@ -13,16 +13,16 @@ public class Orders {
     private Long orderId;
     private Date date;
     private Double totalPrice;
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinTable(name="productId")
-	private List<Product> products;
-    public List<Product> getProducts() {
-		return products;
-	}
-
-	public void setProducts(List<Product> products) {
-		this.products = products;
-	}
+//    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//	@JoinTable(name="productId")
+//	private List<Product> products;
+//    public List<Product> getProducts() {
+//		return products;
+//	}
+//
+//	public void setProducts(List<Product> products) {
+//		this.products = products;
+//	}
 
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "order")
     private List<CartItem> cartItems;
