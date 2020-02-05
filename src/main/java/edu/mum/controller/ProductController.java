@@ -8,6 +8,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -23,27 +24,35 @@ import edu.mum.domain.Catagory;
 import edu.mum.domain.Product;
 import edu.mum.service.CatagoryService;
 import edu.mum.service.ProductService;
+
 @Controller
 public class ProductController {
-	
-	@Autowired
-	ServletContext servletContext;
-	
-	@Autowired
-	ProductService productService;
-	@Autowired
-	CatagoryService catagoryService;
-	
+
+    @Autowired
+    ServletContext servletContext;
+
+    @Autowired
+    ProductService productService;
+    @Autowired
+    CatagoryService catagoryService;
+
+
+    @RequestMapping({"/products"})
+    public String product(Model model) {
+        model.addAttribute("productList", productService.getAllProducts());
+        return "products";
+    }
+
     @RequestMapping({"/addProduct"})
-    public String addProduct(@ModelAttribute("newProduct") Product product,Model model) {
-    	model.addAttribute("categoryList",catagoryService.findAllCatagories());
-    	System.out.println(catagoryService.findAllCatagories());
+    public String addProduct(@ModelAttribute("newProduct") Product product, Model model) {
+        model.addAttribute("categoryList", catagoryService.findAllCatagories());
+        System.out.println(catagoryService.findAllCatagories());
         return "addProduct";
     }
-    
-    @RequestMapping(value="/addProduct", method = RequestMethod.POST)
-    public String saveProduct(@ModelAttribute("newProduct") Product product, Model model,HttpServletRequest request) throws FileNotFoundException {
-    	
+
+    @RequestMapping(value = "/addProduct", method = RequestMethod.POST)
+    public String saveProduct(@ModelAttribute("newProduct") Product product, Model model, HttpServletRequest request) throws FileNotFoundException {
+
 //    	MultipartFile multipartFile=product.getProductImage();
 ////    	byte[] multipartFile=product.getProductImage();
 //    	    	
@@ -90,27 +99,27 @@ public class ProductController {
 	
 	@RequestMapping(value="/productList", method = RequestMethod.GET)
     public String listProduct(Model model) {
-    	
-    	
-		List<Product> list = productService.getAllProducts();
-		model.addAttribute("product",  list);
-		
-		
-    	return "products";
-	
-	
-	}
-	
-	@RequestMapping(value="/productDetail", method = RequestMethod.POST)
-    public String productDetail(@ModelAttribute("product")Product product ,Model model , @RequestParam("id") Long productId) {
-    	
-		productService.getProductById(productId);
-		model.addAttribute(product);
-		
-		
-    	return "productDetail";
-	
-	
-	}
-	
+
+
+        List<Product> list = productService.getAllProducts();
+        model.addAttribute("product", list);
+
+
+        return "products";
+
+
+    }
+
+    @RequestMapping(value = "/productDetail", method = RequestMethod.POST)
+    public String productDetail(@ModelAttribute("product") Product product, Model model, @RequestParam("id") Long productId) {
+
+        productService.getProductById(productId);
+        model.addAttribute(product);
+
+
+        return "productDetail";
+
+
+    }
+
 }

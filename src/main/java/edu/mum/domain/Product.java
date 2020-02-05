@@ -35,9 +35,8 @@ public class Product implements Serializable {
     private MultipartFile productImage;
 	private String imageURL;
 	private String productCondition;
-	
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn
+
+    @ManyToOne
    	private Catagory catagory;
     
     public void setId(Long id) {
