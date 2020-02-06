@@ -6,8 +6,8 @@
     <title>My Awesome Website</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/style.css"/>
 
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-	
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
     <script>
         $(document).ready(function () {
             $("#products").click(function (event) {
@@ -41,24 +41,23 @@
             $("#login").click(function (event) {
                 $('#main').load("login");
             });
-            
+
         });
 
 
     </script>
 </head>
 <body>
-
 <!-- the header -->
 <header>
 
     <a id="logo" href="<spring:url value='/welcome' />">
         <img src="${pageContext.request.contextPath}/resource/images/avatar.png" alt="Logo"/>
         <span>Ecommerce Website
-            <p> <security:authorize access="isAuthenticated()">
-                Welcome Back <security:authentication property="principal.username"/>
-                
-            </security:authorize></p>
+           <P>  Welcome Back</P>
+            <security:authorize access="isAuthenticated()">
+                <div id="username"><security:authentication property="principal.username"/></div>
+            </security:authorize>
         </span>
     </a>
 
@@ -68,6 +67,7 @@
         	<li><a href="#" id="about">About</a></li>
             <li><a href="#" id="products">Products</a></li>
             <security:authorize access="hasRole('ROLE_ADMIN')">
+
 			    <li><a href="<spring:url value='/addProduct' />" id="addProduct">Add Product</a></li>
             	<li><a href="#" id="all-orders">All Orders</a></li>
 			</security:authorize>
@@ -90,7 +90,7 @@
 
 <!-- the content -->
 <main>
-
+Choose Language : <a href="?language=en_US">English</a> | <a href="?language=fr">French</a>
     <!-- testimonials section -->
     <div class="site-section site-section-secondary">
         <div class="site-section-inside" id="main" style="min-height: 500px">

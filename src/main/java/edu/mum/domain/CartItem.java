@@ -19,6 +19,15 @@ public class CartItem {
 
     Integer amount;
 
+    public CartItem() {
+
+    }
+    public CartItem(Product product, Orders order, Integer amount) {
+        this.product = product;
+        this.order = order;
+        this.amount = amount;
+    }
+
     public Long getId() {
         return id;
     }

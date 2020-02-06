@@ -42,3 +42,7 @@ INSERT INTO `product` (name , amount ,price,cId) VALUES ("Iphone 1",500,100,1);
 INSERT INTO `product` (name , amount ,price,cId) VALUES ("Iphone 7",500,900,1);
 INSERT INTO `product` (name , amount ,price,cId) VALUES ("Iphone 5",500,900,1);
 
+INSERT INTO `orders` ( orderId , member_id ) VALUES (1,1);
+INSERT INTO `orders` ( orderId , member_id ) VALUES (2,2);
+INSERT INTO `orders` ( orderId , member_id ) VALUES (3,1);
+INSERT INTO `orders` ( orderId , member_id ) VALUES (4,2);
