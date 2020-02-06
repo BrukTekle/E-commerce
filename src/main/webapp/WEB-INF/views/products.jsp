@@ -1,29 +1,35 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <security:csrfMetaTags/>
 
     <title>Products</title>
-
     <script>
 
         $(document).ready(function () {
 
+
             $(".addToCard").click(function (event) {
-                alert(event.target.id);
-                alert($("#username").text());
+                // alert(event.target.id);
+                // alert($("#username").text());
                 $.ajax({
                     url: "addProductToCard",
-                    type: 'Post',
-                    async: false,
+                    type: 'POST',
+                    async: true,
+                    headers: {"X-CSRF-TOKEN": $("input[name='_csrf']").val()},
                     data: {
                         "productId": event.target.id,
                         "username": $("#username").text()
                     },
                     success: function (data) {
-                        alert("Product was added to the card successfully}");
+                        alert("Product was added to the cart successfully");
+                        $('#main').load("products");
+
                     }
                 });
             });
@@ -89,6 +95,7 @@
                 <h1>${product.name}</h1>
                 <p class="price">${product.price}</p>
                 <p>${product.description}</p>
+                <p>Stock : ${product.amount}</p>
                 <p>
                     <button id="${product.id}" class="addToCard">Add to Cart</button>
                 </p>

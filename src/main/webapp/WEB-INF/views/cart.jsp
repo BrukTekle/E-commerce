@@ -1,71 +1,152 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<%--<link rel="stylesheet"--%>
-	<%--href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">--%>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <security:csrfMetaTags/>
 
-  	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-	<script type="text/javascript" src="<spring:url value="/resource/js/cart.js"/>"></script>
+    <script>
 
-<title>Cart</title>
-<style type="text/css">@import url("<c:url value="/resource/css/cart.css"/>");</style>
+        $(document).ready(function () {
+            $("#placeOrder").click(function (event) {
+
+                <security:authorize access="isAuthenticated()">
+                $('#main').load("orders/placeOrder/<security:authentication property="principal.username"/>");
+                </security:authorize>
+                alert("Order Completed Successfully !");
+            });
+
+            <%--$("#placeOrder").click(function (event) {--%>
+            <%--// alert(event.target.id);--%>
+            <%--// alert($("#username").text());--%>
+            <%--$.ajax({--%>
+            <%--url: "orders/placeOrder",--%>
+            <%--type: 'POST',--%>
+            <%--async: true,--%>
+            <%--headers: {"X-CSRF-TOKEN": $("input[name='_csrf']").val()},--%>
+
+            <%--data: {--%>
+            <%--"orderId": ${order.orderId},--%>
+            <%--},--%>
+            <%--success: function (data) {--%>
+            <%--alert("Order Completed Successfully !");--%>
+            <%--&lt;%&ndash;$('#main').load("orders/cart/<security:authentication property="principal.username"/>");&ndash;%&gt;--%>
+
+            <%--}--%>
+            <%--});--%>
+            <%--});--%>
+
+
+
+            <%--$("#placeOrder").click(function (event) {--%>
+            <%--// alert(event.target.id);--%>
+            <%--// alert($("#username").text());--%>
+            <%--$.ajax({--%>
+            <%--url: "orders/placeOrder",--%>
+            <%--type: 'POST',--%>
+            <%--async: true,--%>
+            <%--headers: {"X-CSRF-TOKEN": $("input[name='_csrf']").val()},--%>
+
+            <%--data: {--%>
+            <%--"orderId": ${order.orderId},--%>
+            <%--},--%>
+            <%--success: function (data) {--%>
+            <%--alert("Order Completed Successfully !");--%>
+            <%--&lt;%&ndash;$('#main').load("orders/cart/<security:authentication property="principal.username"/>");&ndash;%&gt;--%>
+
+            <%--}--%>
+            <%--});--%>
+            <%--});--%>
+
+        });
+    </script>
+    <style>
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        .panel {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            transition: max-height 0.2s ease-out;
+        }
+
+        #orders {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #orders td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #orders tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #orders tr:hover {
+            background-color: #ddd;
+        }
+
+        #orders th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #1a0600;
+            color: white;
+        }
+    </style>
+
+
 </head>
 <body>
-	<section>
- 			<div id="prod" class="container"  >
-   			     <div id="result" style="display:none" > </div>
-			</div>
- 	</section>	
 
- 	<section class="container" >
- 		<div>
+<c:if test="${empty order}">
+    <h1>Your Card Is Empty Please Select Some Products First</h1>
+</c:if>
 
-			<div>
-				 <a href="<spring:url value="/checkout?cartId=${cartId}"/>" class="btn btn-success pull-right"> <span
-					class="glyphicon-shopping-cart glyphicon"></span> Check out
-				</a>
-			</div>
-			<table class="table table-hover">
-				<tr>
-					<th>---ID---</th>
-					<th>Name</th>
-					<th>Unit price</th>
-					<th>Quantity</th>
-					<th>Price</th>
-					<th>Action</th>
-				</tr>
-			</table>
-	<table id="cart_table" class="table table-hover">
-	
-		<c:forEach  var="item" items ="${cart.cartItems}" >
-				<tr>
-					<td>${item.value.product.productId}</td>
-					<td>${item.value.product.name}</td>
-					<td>${item.value.product.unitPrice}</td>
-					<td>${item.value.quantity}</td>
-					<td>${item.value.totalPrice}</td>
-					<td><a href="#" class="label label-danger" onclick="removeFromCart('${item.value.product.productId}');"> <span
-							class="glyphicon glyphicon-remove" /></span> Remove
-					</a></td>
-				</tr>
-		</c:forEach>
-  
-				<tr>
-					<th></th>
-					<th></th>
-					<th>Grand Total</th>
-					<th>${cart.grandTotal}</th>
-					<th></th>
-				</tr>
-			</table>
-			
-			<a href="<spring:url value="/products" />" class="btn btn-default">
-						<span class="glyphicon-hand-left glyphicon"></span> Continue shopping
-			</a>
-		</div>
-	</section>
+<c:if test="${not empty order}">
+
+    <h1>This is your Current cart please review well before completing your order # ${order.orderId}</h1>
+
+    <div class="panel">
+        <table id="orders">
+            <tr>
+                <th>ID</th>
+                <th>Product Name</th>
+                <th>Amount</th>
+                <th>Single Unite Price</th>
+            </tr>
+            <c:forEach items="${order.cartItems}" var="cartItem" varStatus="stat">
+                <tr>
+                    <td>${cartItem.product.id}</td>
+                    <td>${cartItem.product.name}</td>
+                    <td>${cartItem.amount}</td>
+                    <td>${cartItem.product.price}</td>
+                </tr>
+            </c:forEach>
+        </table>
+
+        </br>
+
+        <P> Your Total price is ${order.totalPrice}</P>
+        <button class="button" id="placeOrder"> Place Your Order !</button>
+    </div>
+</c:if>
+
 </body>
 </html>
+

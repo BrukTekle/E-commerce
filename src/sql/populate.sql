@@ -42,7 +42,15 @@ INSERT INTO `product` (name , amount ,price,cId) VALUES ("Trouser2",500,100,2);
 INSERT INTO `product` (name , amount ,price,cId) VALUES ("Trouser3",500,900,2);
 INSERT INTO `product` (name , amount ,price,cId) VALUES ("hat",500,900,2);
 
-INSERT INTO `orders` ( orderId , member_id ) VALUES (1,1);
-INSERT INTO `orders` ( orderId , member_id ) VALUES (2,2);
-INSERT INTO `orders` ( orderId , member_id ) VALUES (3,1);
-INSERT INTO `orders` ( orderId , member_id ) VALUES (4,2);
+INSERT INTO `orders` ( orderId , member_id ,status) VALUES (1,1,"COMPLETED");
+INSERT INTO `orders` ( orderId , member_id ,status) VALUES (2,2,"COMPLETED");
+INSERT INTO `orders` ( orderId , member_id ,status) VALUES (3,1,"COMPLETED");
+INSERT INTO `orders` ( orderId , member_id ,status) VALUES (4,2,"COMPLETED");
+
+
+INSERT INTO `cartitem` ( id , order_id , amount ,product_id) VALUES (1,1,1,1);
+INSERT INTO `cartitem` ( id , order_id , amount ,product_id) VALUES (2,1,1,2);
+INSERT INTO `cartitem` ( id , order_id , amount ,product_id) VALUES (3,1,1,3);
+INSERT INTO `cartitem` ( id , order_id , amount ,product_id) VALUES (4,2,1,1);
+INSERT INTO `cartitem` ( id , order_id , amount ,product_id) VALUES (5,3,1,3);
+INSERT INTO `cartitem` ( id , order_id , amount ,product_id) VALUES (6,4,1,2);

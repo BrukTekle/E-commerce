@@ -9,9 +9,11 @@ public interface OrdersService {
 
 	public void save(Orders orders);
 	public List<Orders> findAll();
-	public List<Orders> findOrderForUser(String username);
+	public List<Orders> findCompletedOrderForUser(String username);
+	public Orders findInProgressOrderForUser(String username);
  	public Orders findOne(Long id);
-	
+ 	public void updateToCompleted(String username);
+
 	
 }
 

@@ -25,12 +25,26 @@ public class OrdersServiceImpl implements OrdersService {
     }
 
     @Override
-    public List<Orders> findOrderForUser(String username) {
-        return ordersRepository.findOrderForUser( username);
+    public List<Orders> findCompletedOrderForUser(String username) {
+        return ordersRepository.findCompletedOrderForUser( username);
+    }
+
+    @Override
+    public Orders findInProgressOrderForUser(String username) {
+        return ordersRepository.findInProgressOrderForUser( username);
+
     }
 
     @Override
     public Orders findOne(Long id) {
         return ordersRepository.findOne(id);
+    }
+
+    @Override
+    public void updateToCompleted(String username) {
+
+        Orders order =findInProgressOrderForUser(username);
+        order.setStatus("COMPLETED");
+        ordersRepository.save(order);
     }
 }

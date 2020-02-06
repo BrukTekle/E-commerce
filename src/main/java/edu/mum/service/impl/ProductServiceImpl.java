@@ -65,27 +65,31 @@ public class ProductServiceImpl implements ProductService {
     public void addProductToCard(Long productId, String username) {
 
         System.out.println("IN addProductToCard");
-        System.out.println("Product id is " +productId);
+        System.out.println("Product id is " + productId);
         ordersRepository.findOne(1L);
 
-        System.out.println("IN productRepository"+productRepository);
+        System.out.println("IN productRepository" + productRepository);
         Product product = productRepository.findProductById(1L);
-        System.out.println("product" +product);
+        System.out.println("product" + product);
         Members member = memberRepository.findMembersByUserName(username);
-        System.out.println("member" +member);
+        System.out.println("member" + member);
 
         Orders order = ordersRepository.findCartForMember(member);
-        System.out.println("order" +order);
+        System.out.println("order" + order);
 
         if (order == null) {
             order = new Orders();
             order.setStatus("IN PROGRESS");
+            order.setMember(member);
+            ordersRepository.save(order);
         }
         CartItem cartItem = cartItemRepository.findCartItemByProductAndOrder(product, order);
-        System.out.println("cartItem" +cartItem);
+        System.out.println("cartItem" + cartItem);
 
-        if (cartItem == null) {
+        if (cartItem == null || cartItem.getProduct().getId() != productId) {
             cartItem = new CartItem(product, order, 1);
+        } else {
+            cartItem.setAmount(cartItem.getAmount() + 1);
         }
         System.out.println("SAVED CART ITEM " + cartItem);
         cartItemRepository.save(cartItem);

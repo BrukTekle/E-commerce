@@ -5,6 +5,7 @@
 <head>
     <title>My Awesome Website</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/style.css"/>
+    <security:csrfMetaTags />
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 
@@ -30,7 +31,9 @@
                 $('#main').load("wish-list");
             });
             $("#cart").click(function (event) {
-                $('#main').load("cart");
+                <security:authorize access="isAuthenticated()">
+                $('#main').load("orders/cart/<security:authentication property="principal.username"/>");
+                </security:authorize>
             });
             $("#about").click(function (event) {
                 $('#main').load("about");
