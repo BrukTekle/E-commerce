@@ -83,7 +83,7 @@ public class ProductController {
 	       try {
 		      	productImage.transferTo(new File(rootDirectory + File.separator  + "resources" + File.separator  
 		                   + "images" + File.separator + product.getId() + ".png"));
-		      	System.out.println(product.getName());
+		      	System.out.println(rootDirectory);
 	       } catch (Exception e) {
 			throw new RuntimeException("Product Image saving failed", e);
 	       }
@@ -106,11 +106,8 @@ public class ProductController {
 	
 	@RequestMapping(value="/productList", method = RequestMethod.GET)
     public String listProduct(Model model) {
-
-
         List<Product> list = productService.getAllProducts();
         model.addAttribute("product", list);
-
 
         return "products";
 

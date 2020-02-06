@@ -63,7 +63,6 @@ public class Members {
 //	 @JoinColumn(name="memberId") 
 	 private List<Orders> orders;
 	
-	
 	public String getPhone() {
 		return phone;
 	}

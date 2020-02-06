@@ -31,16 +31,16 @@ INSERT INTO catagory (name, description) VALUES ('Electronics', 'That pretty muc
 
 INSERT INTO `catagory` (name,description) VALUES ('outfits','long sleev Top');
 
-INSERT INTO `product` (name , amount ,price,cId) VALUES ("Samsung TV",500,2000,1);
-INSERT INTO `product` (name , amount ,price,cId) VALUES ("Iphone 12",500,900,1);
-INSERT INTO `product` (name , amount ,price,cId) VALUES ("Samsung TV",500,2000,1);
-INSERT INTO `product` (name , amount ,price,cId) VALUES ("Iphone 12",500,900,1);
-INSERT INTO `product` (name , amount ,price,cId) VALUES ("Iphone 8",500,900,1);
-INSERT INTO `product` (name , amount ,price,cId) VALUES ("Iphone 6",500,900,1);
-INSERT INTO `product` (name , amount ,price,cId) VALUES ("Iphone 8",500,900,1);
-INSERT INTO `product` (name , amount ,price,cId) VALUES ("Iphone 1",500,100,1);
-INSERT INTO `product` (name , amount ,price,cId) VALUES ("Iphone 7",500,900,1);
-INSERT INTO `product` (name , amount ,price,cId) VALUES ("Iphone 5",500,900,1);
+INSERT INTO `product` (name , amount ,price,cId) VALUES ("SamsungTV",500,2000,1);
+INSERT INTO `product` (name , amount ,price,cId) VALUES ("Iphone12",500,900,1);
+INSERT INTO `product` (name , amount ,price,cId) VALUES ("SamsungTV2",500,2000,1);
+INSERT INTO `product` (name , amount ,price,cId) VALUES ("Iphone13",500,900,1);
+INSERT INTO `product` (name , amount ,price,cId) VALUES ("Iphone8",500,900,1);
+INSERT INTO `product` (name , amount ,price,cId) VALUES ("Trousers",500,900,2);
+INSERT INTO `product` (name , amount ,price,cId) VALUES ("Shorts",500,900,2);
+INSERT INTO `product` (name , amount ,price,cId) VALUES ("Trouser2",500,100,2);
+INSERT INTO `product` (name , amount ,price,cId) VALUES ("Trouser3",500,900,2);
+INSERT INTO `product` (name , amount ,price,cId) VALUES ("hat",500,900,2);
 
 INSERT INTO `orders` ( orderId , member_id ) VALUES (1,1);
 INSERT INTO `orders` ( orderId , member_id ) VALUES (2,2);

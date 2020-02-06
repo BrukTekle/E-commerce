@@ -89,7 +89,7 @@
 	</div>
 	
 	
-	<form id="categoryForm" method="post">
+<%-- 	<form id="categoryForm" method="post">
 			<!-- <input type="hidden" name="id" value="0"> -->
           
           <p>
@@ -103,16 +103,10 @@
  
             <input type="button" value="Add Category" onclick="categorySubmit();return false;"> 
      
-    </form>
+    </form> --%>
 
 </section>
 
-<div id="result" >   	
-    	    <p id="success" > 
 
-    		</p> 
-    		<p id="errors" > 
-    		</p>
-   </div>
 </body>
 </html>
