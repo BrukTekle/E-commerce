@@ -132,6 +132,8 @@ public class ProductController {
     @RequestMapping(value = "/addProductToCard", method = RequestMethod.POST)
     public String productDetail( Model model, @RequestParam("productId") Long productId, @RequestParam("username") String username) {
 
+        System.out.println(productId);
+        System.out.println(username);
         productService.addProductToCard(productId,username);
         productService.decreaseAmount(productId,1);
 

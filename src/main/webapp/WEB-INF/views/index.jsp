@@ -6,8 +6,8 @@
     <title>My Awesome Website</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/style.css"/>
 
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-	
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
     <script>
         $(document).ready(function () {
             $("#products").click(function (event) {
@@ -41,7 +41,7 @@
             $("#login").click(function (event) {
                 $('#main').load("login");
             });
-            
+
         });
 
 
@@ -55,10 +55,10 @@
     <a id="logo" href="index.html">
         <img src="${pageContext.request.contextPath}/resource/images/avatar.png" alt="Logo"/>
         <span>Ecommerce Website
-            <p> <security:authorize access="isAuthenticated()">
-                Welcome Back <security:authentication property="principal.username"/>
-                
-            </security:authorize></p>
+           <P>  Welcome Back</P>
+            <security:authorize access="isAuthenticated()">
+                <div id="username"><security:authentication property="principal.username"/></div>
+            </security:authorize>
         </span>
     </a>
 
@@ -67,27 +67,27 @@
         <ul>
             <li><a href="#" id="products">Products</a></li>
             <security:authorize access="hasRole('ROLE_ADMIN')">
-			    <li><a href="<spring:url value='/addProduct' />" id="addProduct">Add Product</a></li>
-            	<li><a href="#" id="all-orders">All Orders</a></li>
-			</security:authorize>
+                <li><a href="<spring:url value='/addProduct' />" id="addProduct">Add Product</a></li>
+                <li><a href="#" id="all-orders">All Orders</a></li>
+            </security:authorize>
             <li><a href="#" id="cart">Cart</a></li>
             <li><a href="#" id="user-orders">My Orders</a></li>
             <li><a href="#" id="wish-list">Wish list</a></li>
             <li><a href="#" id="about">About</a></li>
-            
+
             <security:authorize access="!isAuthenticated()">
-				<li><a href="<spring:url value='/members/add' />" id="signup">Sign Up</a></li>
-	            <li><a href="<spring:url value='/login' />" id="login">Login</a></li>
-			</security:authorize>
-			
-			
-			 <security:authorize access="isAuthenticated()">
-				<%-- <li><a href="<spring:url value="/logout" />" id="logout">Logout</a></li> --%> 
-				<c:url value="/logout" var="logoutUrl" />
-				<form id="logout" action="${logoutUrl}" method="post" >
-				  <input type = "submit" name="${_csrf.parameterName}" value="Logout" />
-				</form>
-			</security:authorize>
+                <li><a href="<spring:url value='/members/add' />" id="signup">Sign Up</a></li>
+                <li><a href="<spring:url value='/login' />" id="login">Login</a></li>
+            </security:authorize>
+
+
+            <security:authorize access="isAuthenticated()">
+                <%-- <li><a href="<spring:url value="/logout" />" id="logout">Logout</a></li> --%>
+                <c:url value="/logout" var="logoutUrl"/>
+                <form id="logout" action="${logoutUrl}" method="post">
+                    <input type="submit" name="${_csrf.parameterName}" value="Logout"/>
+                </form>
+            </security:authorize>
         </ul>
     </nav>
 

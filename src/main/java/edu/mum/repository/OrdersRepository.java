@@ -1,6 +1,7 @@
 package edu.mum.repository;
 
 import edu.mum.domain.Catagory;
+import edu.mum.domain.Members;
 import edu.mum.domain.Orders;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -14,5 +15,8 @@ public interface OrdersRepository extends CrudRepository<Orders, Long> {
 
     @Query("SELECT o from Orders o where o.member.userCredentials.username=:username")
     public List<Orders> findOrderForUser(@Param("username") String username);
+
+    @Query("SELECT o from Orders o where o.member=:member AND o.status='IN PROGRESS'")
+    public Orders findCartForMember(@Param("member") Members member);
 
 }

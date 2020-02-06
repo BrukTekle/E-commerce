@@ -11,22 +11,23 @@
 
         $(document).ready(function () {
 
-            <security:authorize access="isAuthenticated()">
-            $(".add-to-card").click(function (event) {
+            $(".addToCard").click(function (event) {
+                alert(event.target.id);
+                alert($("#username").text());
                 $.ajax({
                     url: "addProductToCard",
                     type: 'Post',
                     async: false,
                     data: {
                         "productId": event.target.id,
-                        "username": <security:authentication property="principal.username"/>
+                        "username": $("#username").text()
                     },
                     success: function (data) {
-                           alert("Product was added to the card successfully}");
+                        alert("Product was added to the card successfully}");
                     }
                 });
             });
-            </security:authorize>
+
         });
     </script>
 
@@ -80,19 +81,20 @@
             <section class="container">
             <tr class="row">
 
-            </c:if>
-            <td>
-                <div class="card"><!--  P1234.png-->
-                    <img src="${pageContext.request.contextPath}/resource/images/${product.name}.png" alt="Denim Jeans" style="width:25%"/>
-                    <h1>${product.name}</h1>
-                    <p class="price">${product.price}</p>
-                    <p>${product.description}</p>
-                    <p>
-                        <button>Add to Cart</button>
-                    </p>
-                </div>
-            </td>
-            <c:if test="${i%5+1==0}">
+        </c:if>
+        <td>
+            <div class="card"><!--  P1234.png-->
+                <img src="${pageContext.request.contextPath}/resource/images/${product.name}.png" alt="Denim Jeans"
+                     style="width:25%"/>
+                <h1>${product.name}</h1>
+                <p class="price">${product.price}</p>
+                <p>${product.description}</p>
+                <p>
+                    <button id="${product.id}" class="addToCard">Add to Cart</button>
+                </p>
+            </div>
+        </td>
+        <c:if test="${i%5+1==0}">
 
             </tr>
             </section>
