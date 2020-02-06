@@ -13,7 +13,6 @@ $(document).ready(function() {
 				dataType: "json",
 				success: function(response){
 	 		 		alert("Product Successfully added to the Cart!");
-
 				},
 				error: function(){						
 					alert('Error while request..');
@@ -35,25 +34,75 @@ $(document).ready(function() {
 		   });
 	   }
 	   
+//	   //add catagory
+//	   categorySubmit=function(){
+//		   var ob={
+//		 			"name":"abc",
+//		 			"description":"xwz"
+//		 		}
+//		   	//var dataToSend = JSON.stringify(serializeObject($('#categoryForm')));	   	
+//		   alert(ob);
+//		   	 $.ajax({
+//				type: 'POST',
+//				url: contextRoot + '/addCatagory',
+//				dataType: "json",         
+//		 		data:JSON.stringify(ob),	 		
+//		 		contentType: 'application/json',   
+//				success: function(){
+//					$('#errors').html("");
+//		 			$("#result").append( '<H3 align="center"> OKAY!! <H3>');                
+//			 	    $('#result').show();
+//				},
+//		 
+//				error: function(){	
+//
+//					/*if (errorObject.responseJSON.errorType == "ValidationError") {
+//			 			$('#success').html("");
+//			 			$('#errors').html("");
+//			 			$("#errors").append( '<H3 align="center"> Error(s)!! <H3>');                
+//			  			    $("#result").append( '<p>');
+//			  	
+//			  			    var errorList = errorObject.responseJSON.errors;
+//			 	 	        $.each(errorList,  function(i,error) {			   
+//			 		    		$("#errors").append( error.message + '<br>');
+//					    	});
+//			 	 	        $("#errors").append( '</p>');
+//			 	 	        $('#result').show();
+//					}
+//					else {*/
+//						alert("error while requesting");   
+////					}
+//		 		}
+//			});
+//		}
+	   
+	   
 	   //add catagory
-	   categorySubmit = function (){
-		   alert('my message');
-		   	var dataToSend = JSON.stringify(serializeObject($('#categoryForm')));	   	
+	   categorySubmit=function(){
+		   var ob={
+		 			"name":"abc",
+		 			"description":"xwz"
+		 		}
+		   	//var dataToSend = JSON.stringify(serializeObject($('#categoryForm')));	   	
+		   alert(ob);
 		   	 $.ajax({
-				type: 'POST',
-				url: contextRoot + '/addCatagory',
-				dataType: "json",         
-		 		data:dataToSend,
-		 		contentType: 'application/json',   
+                 url: "addCatagory",
+                 type: 'Post',
+                 async: false,
+		 		data:{
+		 			"name":"name",
+		 			"description":"desc"
+		 			
+		 		},	 		
 				success: function(){
 					$('#errors').html("");
 		 			$("#result").append( '<H3 align="center"> OKAY!! <H3>');                
 			 	    $('#result').show();
 				},
 		 
-				error: function(errorObject ){	
+				error: function(){	
 
-					if (errorObject.responseJSON.errorType == "ValidationError") {
+					/*if (errorObject.responseJSON.errorType == "ValidationError") {
 			 			$('#success').html("");
 			 			$('#errors').html("");
 			 			$("#errors").append( '<H3 align="center"> Error(s)!! <H3>');                
@@ -66,12 +115,15 @@ $(document).ready(function() {
 			 	 	        $("#errors").append( '</p>');
 			 	 	        $('#result').show();
 					}
-					else {
-						alert(errorObject.responseJSON.errors(0));   
-					}
+					else {*/
+						alert("error while requesting");   
+//					}
 		 		}
 			});
 		}
+	   
+	   
+	   
 	   
 	   
 	 // Click on Product [row]  in cart
