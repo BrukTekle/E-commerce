@@ -25,7 +25,7 @@ public class Catagory implements Serializable {
 	private Integer id;
 	private String name;
 	private String description;
-	private byte[] catagoryImage;
+
 	
 	public Integer getId() {
 		return id;
@@ -41,12 +41,6 @@ public class Catagory implements Serializable {
 	}	
 	public void setProducts(List<Product> products) {
 		this.products = products;
-	}
-	public byte[] getCatagoryImage() {
-		return catagoryImage;
-	}
-	public void setCatagoryImage(byte[] catagoryImage) {
-		this.catagoryImage = catagoryImage;
 	}
 
 	public String getName() {

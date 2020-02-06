@@ -48,7 +48,6 @@
     </script>
 </head>
 <body>
-
 <!-- the header -->
 <header>
 
@@ -91,7 +90,7 @@
 
 <!-- the content -->
 <main>
-
+Choose Language : <a href="?language=en_US">English</a> | <a href="?language=fr">French</a>
     <!-- testimonials section -->
     <div class="site-section site-section-secondary">
         <div class="site-section-inside" id="main" style="min-height: 500px">

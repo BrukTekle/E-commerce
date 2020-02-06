@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import edu.mum.domain.Catagory;
@@ -30,12 +31,22 @@ public class CatagoryController {
 		return "catagory";
 
 	}
-	
+
+//	@RequestMapping(value = "/addCatagory", method = RequestMethod.POST)
+//	public @ResponseBody Catagory addCatagory(@Valid @RequestBody Catagory catagory) {
+//		System.out.println(catagory.getDescription()+"==================================");
+//		CatagoryService.save(catagory);
+//		return catagory;
+//	}
+
 	@RequestMapping(value = "/addCatagory", method = RequestMethod.POST)
-	public @ResponseBody Catagory addCatagory(@Valid @RequestBody Catagory catagory) {
-		System.out.println(catagory.getDescription()+"==================================");
-		CatagoryService.save(catagory);;
-		return catagory;
+	public void addCatagory(Model model, @RequestParam("name") String name,
+			@RequestParam("description") String description) {
+		System.out.println(name + "==================================");
+		Catagory catagory = new Catagory();
+		catagory.setDescription(description);
+		catagory.setName(name);
+		CatagoryService.save(catagory);
 	}
 
 }
