@@ -52,7 +52,7 @@
     
     
     
-          <security:logout logout-success-url="/logout" 
+          <security:logout logout-success-url="/login" 
           delete-cookies="JSESSIONID" />   
           
           

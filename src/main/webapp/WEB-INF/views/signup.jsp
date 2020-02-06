@@ -141,7 +141,7 @@
 					</div>
 				</div>
 				
-					<div class="form-group">
+					<div class="form-group" style="visibility:hidden">
 					<label class="control-label col-lg-2" for="authority">Role</label>
 					<div class="col-lg-10">
 						<div class="form:input-prepend">

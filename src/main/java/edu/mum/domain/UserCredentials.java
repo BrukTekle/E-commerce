@@ -13,15 +13,21 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
  
 @Entity(name = "CREDENTIALS")
 public class UserCredentials {
 
-	 @Id
-	 @Column(nullable = false, unique = true)
+	@Id
+	@Column(nullable = false, unique = true)
+	@NotEmpty
  	String username;
-	 @Column(nullable = false)
+	
+	@Column(name = "password", nullable = false)
+	@NotEmpty
 	String password;
+	
 	@Transient
 	String verifyPassword;
 	Boolean enabled;
