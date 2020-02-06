@@ -52,7 +52,7 @@
 <!-- the header -->
 <header>
 
-    <a id="logo" href="index.html">
+    <a id="logo" href="<spring:url value='/welcome' />">
         <img src="${pageContext.request.contextPath}/resource/images/avatar.png" alt="Logo"/>
         <span>Ecommerce Website
             <p> <security:authorize access="isAuthenticated()">
