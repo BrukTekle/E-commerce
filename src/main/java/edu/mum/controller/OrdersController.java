@@ -45,7 +45,7 @@ public class OrdersController {
         ordersService.updateToCompleted(username);
         model.addAttribute("order", null);
 
-        return "card";
+        return "cart";
 
 
     }
